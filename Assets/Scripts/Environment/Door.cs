@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    private bool _triggered;
+    public float Duration;
+    public float Angle;
+
+    private Collider _trigger;
 
 	// Use this for initialization
 	void Start () {
-	    _triggered = false;
+	    _trigger = GetComponent<Collider>();
 	}
 	
 	// Update is called once per frame
@@ -17,8 +20,20 @@ public class Door : MonoBehaviour
 	}
 
     void OnTriggerEnter(Collider other) {
-        _triggered = true;
-        Debug.Log("triggered");
-        //Destroy(other.gameObject);
+        StartCoroutine(Open());
+    }
+
+    IEnumerator Open() {
+        var initialRot = transform.rotation.eulerAngles;
+
+        for (float passed = 0f; passed <= Duration; passed += Time.deltaTime) {
+            var targetRot = initialRot;
+            targetRot.y -= passed / Duration * Angle;
+            transform.rotation = Quaternion.Euler(targetRot);
+            yield return null;
+        }
+
+        Destroy(_trigger);
+        _trigger = null;
     }
 }

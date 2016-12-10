@@ -260,16 +260,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rooms:
-  - {fileID: 1826862634951838, guid: b9cecfd633ab9b84fade22b6d60b3e96, type: 2}
-  - {fileID: 1044215325871002, guid: 9b657fb07884da247bdf2c259b8e2505, type: 2}
-  - {fileID: 1646615721429746, guid: 87c541c3cd16a42428d9f0dff338650c, type: 2}
-  - {fileID: 1353474243035420, guid: 4295cbba660ceca468c96a5cbdc39178, type: 2}
-  - {fileID: 1744672093474360, guid: c26531788da539a48a325ddd9214477b, type: 2}
-  - {fileID: 1500406505748086, guid: 3334aa617b4db68428f26b046e206d5f, type: 2}
-  - {fileID: 1059297631077738, guid: 8a01426337e3f124b8687f2e0a674793, type: 2}
-  - {fileID: 1832990193813134, guid: c0c80f662302d634ba0bcafa4eac713f, type: 2}
-  - {fileID: 1689954688017268, guid: 74863c3bcb8d35d40b87b717b7f81a13, type: 2}
-  - {fileID: 1488730817731678, guid: edd45da05e0a017499be12f029888ada, type: 2}
+  - {fileID: 1423142830906426, guid: b9cecfd633ab9b84fade22b6d60b3e96, type: 2}
+  - {fileID: 1024377627633746, guid: 9b657fb07884da247bdf2c259b8e2505, type: 2}
+  - {fileID: 1483886126683542, guid: 87c541c3cd16a42428d9f0dff338650c, type: 2}
+  - {fileID: 1055880550079296, guid: 4295cbba660ceca468c96a5cbdc39178, type: 2}
+  - {fileID: 1568541260924850, guid: c26531788da539a48a325ddd9214477b, type: 2}
+  - {fileID: 1001470073244026, guid: 3334aa617b4db68428f26b046e206d5f, type: 2}
+  - {fileID: 1090515954381960, guid: 8a01426337e3f124b8687f2e0a674793, type: 2}
+  - {fileID: 1734365546804008, guid: c0c80f662302d634ba0bcafa4eac713f, type: 2}
+  - {fileID: 1394583488824676, guid: 74863c3bcb8d35d40b87b717b7f81a13, type: 2}
+  - {fileID: 1263756343642768, guid: edd45da05e0a017499be12f029888ada, type: 2}
 --- !u!4 &1788523090
 Transform:
   m_ObjectHideFlags: 0
