@@ -1,39 +1,85 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public float Duration;
+    public float OpeningDuration;
+    public float ClosingDuration;
     public float Angle;
 
     private Collider _trigger;
+    private Quaternion _initialRotation;
+    private Quaternion _targetRotation;
+    private Coroutine _coroutine;
+    private Transform _doorRoot;
 
-	// Use this for initialization
-	void Start () {
+    private enum State {
+        CLOSED,
+        OPENING,
+        OPENED,
+        CLOSING
+    };
+
+    private State _state;
+    private bool _canBeClosed;
+
+    // Use this for initialization
+    void Start () {
 	    _trigger = GetComponent<Collider>();
-	}
+        _doorRoot = transform.FindChild("DoorRoot");
+        _initialRotation = _doorRoot.rotation;
+	    _targetRotation = _initialRotation * Quaternion.AngleAxis(-Angle, Vector3.up);
+        _state = State.CLOSED;
+        _canBeClosed = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-
+	    if (_canBeClosed && _state == State.OPENED) {
+            _canBeClosed = false;
+            _coroutine = StartCoroutine(Close());
+	    }
 	}
 
     void OnTriggerEnter(Collider other) {
-        StartCoroutine(Open());
+        _canBeClosed = false;
+
+        if (_state == State.CLOSED || _state == State.CLOSING) {
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
+            _coroutine = StartCoroutine(Open());
+        }
+    }
+
+    void OnTriggerExit(Collider other) {
+        _canBeClosed = true;
     }
 
     IEnumerator Open() {
-        var initialRot = transform.rotation.eulerAngles;
+        _state = State.OPENING;
 
-        for (float passed = 0f; passed <= Duration; passed += Time.deltaTime) {
-            var targetRot = initialRot;
-            targetRot.y -= passed / Duration * Angle;
-            transform.rotation = Quaternion.Euler(targetRot);
+        var initialRotation = _doorRoot.rotation;
+        for (float passed = 0f; passed <= OpeningDuration; passed += Time.deltaTime) {
+            _doorRoot.rotation = Quaternion.Lerp(initialRotation, _targetRotation, passed / OpeningDuration);
             yield return null;
         }
 
-        Destroy(_trigger);
-        _trigger = null;
+        _state = State.OPENED;
+    }
+
+    IEnumerator Close() {
+        _state = State.CLOSING;
+
+        var targetRotation = _doorRoot.rotation;
+        for (float passed = 0f; passed <= ClosingDuration; passed += Time.deltaTime) {
+            _doorRoot.rotation = Quaternion.Lerp(targetRotation, _initialRotation, passed / ClosingDuration);
+            yield return null;
+        }
+
+        _state = State.CLOSED;
+
+        // TODO: destroy prev room
     }
 }
