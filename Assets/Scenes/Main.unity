@@ -42,7 +42,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 7
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -71,7 +71,8 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000051, guid: e1ee572cd1c766e42ad0ea329dca49bb,
+    type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
 NavMeshSettings:
@@ -393,10 +394,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rooms:
   - {fileID: 1187078314850500, guid: e5ed1a53013bf8d4faeb55c6a62249f2, type: 2}
-  - {fileID: 1148544799829488, guid: 9b657fb07884da247bdf2c259b8e2505, type: 2}
-  - {fileID: 1188675283767292, guid: 87c541c3cd16a42428d9f0dff338650c, type: 2}
-  - {fileID: 1518150672818268, guid: 4295cbba660ceca468c96a5cbdc39178, type: 2}
-  - {fileID: 1701112187620350, guid: 466eb9c215c78cb4884eb8d0ffdd8f77, type: 2}
+  - {fileID: 1248798386186868, guid: faf5af0f4bd50ae4891937118a9a4be9, type: 2}
+  - {fileID: 1248798386186868, guid: 7987584b7ada1424592a8a516849ea60, type: 2}
+  - {fileID: 1248798386186868, guid: 19fb17de8f0b9c7408424f30bc378822, type: 2}
+  - {fileID: 1248798386186868, guid: 616f9f61b42d9464ca2cc2c21d3f8d02, type: 2}
+  - {fileID: 1248798386186868, guid: 7e26918ce788af645932ca99b232a45b, type: 2}
+  - {fileID: 1248798386186868, guid: 6e837f91b9b8f3b4d8f26cf96e7f4d88, type: 2}
+  - {fileID: 1248798386186868, guid: dc64ce59bbf9a5844b5aa733047e7f62, type: 2}
+  - {fileID: 1187078314850500, guid: 1e98e25df1e56044481e606932db395c, type: 2}
 --- !u!4 &1788523090
 Transform:
   m_ObjectHideFlags: 0
