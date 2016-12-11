@@ -7,6 +7,7 @@ public class Room : MonoBehaviour {
     public float CameraHeight;
     public float BloorAmount;
     public float Speed;
+    public bool ObjectiveSucced;
 
     private bool _moved;
     private bool _initialized;
@@ -19,6 +20,7 @@ public class Room : MonoBehaviour {
         _moved = false;
         _initialized = false;
         _playerInRoom = false;
+        ObjectiveSucced = false;
 
         DeInitialize();
 	}

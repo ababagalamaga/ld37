@@ -32,6 +32,11 @@ public class GameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (_current.GetComponent<Room>().ObjectiveSucced) {
+            _nextUnlocked = true;
+            _current.GetComponent<Room>().ObjectiveSucced = false;
+        }
+
         var nextDoor = _current.transform.FindChild("Door").GetComponent<Door>();
 
         if (_nextUnlocked && !nextDoor.Opened()) {
@@ -96,10 +101,6 @@ public class GameController : MonoBehaviour {
                 }
             }
         }
-    }
-
-    public void UnlockNext() {
-        _nextUnlocked = true;
     }
 
     public void MoveToNext() {
