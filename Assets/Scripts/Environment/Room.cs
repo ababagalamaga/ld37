@@ -1,24 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class Room : MonoBehaviour {
 
     public float CameraHeight;
     public float BloorAmount;
-    public float Speed;
+    public float PlayerSpeed;
+    public float PlayerMaxVelocityChange;
+    public float PlayerJumpAcceleration;
+    public bool ObjectiveSucced;
 
-    private bool _moved;
     private bool _initialized;
     private bool _playerInRoom;
-    private GameController _gameController;
+    private PlayerController _playerController;
 
     // Use this for initialization
     void Awake () {
-        _gameController = GameObject.FindGameObjectsWithTag("GameController")[0].GetComponent<GameController>();
-        _moved = false;
+        _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         _initialized = false;
         _playerInRoom = false;
+        ObjectiveSucced = false;
 
         DeInitialize();
 	}
@@ -73,6 +76,8 @@ public class Room : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         _playerInRoom = true;
+
+        _playerController.ApplySettings(this);
     }
 
     void OnTriggerExit(Collider other) {

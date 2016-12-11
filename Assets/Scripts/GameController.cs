@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour {
     public List<GameObject> Rooms;
 
     private GameObject _playerController;
+    private GameObject _cameraController;
     private GameObject _menu;
 
     private int _currentRoomId;
@@ -29,6 +30,7 @@ public class GameController : MonoBehaviour {
         _playerController = GameObject.FindGameObjectWithTag("Player");
         _menu = GameObject.FindGameObjectWithTag("Menu");
         _menu.SetActive(false);
+        _cameraController = GameObject.FindGameObjectWithTag("MainCamera");
 
         _current = Instantiate(Rooms[_currentRoomId]);
         _current.GetComponent<Room>().Initialize();
@@ -37,6 +39,11 @@ public class GameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (_current.GetComponent<Room>().ObjectiveSucced) {
+            _nextUnlocked = true;
+            _current.GetComponent<Room>().ObjectiveSucced = false;
+        }
+
         var nextDoor = _current.transform.FindChild("Door").GetComponent<Door>();
 
         if (_nextUnlocked && !nextDoor.Opened()) {
@@ -63,6 +70,7 @@ public class GameController : MonoBehaviour {
                 if (_nextCurrent.GetComponent<Room>().Initialized()) {
                     if (_nextCurrent.GetComponent<Room>().PlayerInRoom()) {
                         MoveToNext();
+                        nextDoor.transform.GetComponent<BoxCollider>().enabled = false;
                         if (_nextCurrent != null) {
                             if (!_nextCurrent.GetComponent<Room>().Initialized()) {
                                 _nextCurrent.GetComponent<Room>().Initialize();
@@ -83,6 +91,7 @@ public class GameController : MonoBehaviour {
                 if (_nextNext.GetComponent<Room>().Initialized()) {
                     if (_nextNext.GetComponent<Room>().PlayerInRoom()) {
                         MoveToNext();
+                        nextDoor.transform.GetComponent<BoxCollider>().enabled = false;
                         if (_nextCurrent != null) {
                             if (!_nextCurrent.GetComponent<Room>().Initialized()) {
                                 _nextCurrent.GetComponent<Room>().Initialize();
@@ -128,10 +137,6 @@ public class GameController : MonoBehaviour {
         Application.Quit();
     }
 
-    public void UnlockNext() {
-        _nextUnlocked = true;
-    }
-
     public void MoveToNext() {
         if (_previous != null) {
             Destroy(_previous);
@@ -157,6 +162,7 @@ public class GameController : MonoBehaviour {
         var offset = currentEnterTransform.position - previousEnterTransform.position;
 
         if (_currentRoomId > 0)
+            _cameraController.transform.position -= offset;
             _playerController.transform.position -= offset;
         _previous.transform.position -= offset;
         _current.transform.position -= offset;

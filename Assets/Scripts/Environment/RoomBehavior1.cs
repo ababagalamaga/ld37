@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomBehavior0 : MonoBehaviour
-{
-    public bool ObjectiveSucced = false;
+public class RoomBehavior1 : MonoBehaviour {
+
+	public bool ObjectiveSucced = false;
 
     private Room _room;
 
