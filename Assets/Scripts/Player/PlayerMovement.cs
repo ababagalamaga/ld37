@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
+public class PlayerMovement : MonoBehaviour {
 
     public float Speed;
-    public float JumpHeight;
+    public float JumpAcceleration;
     public float MaxVelocityChange;
     public bool Grounded;
+    public float LerpCoeff;
 
     private GameObject _camera;
     private Rigidbody _rigidbody;
@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
     void FixedUpdate() {
@@ -39,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (Input.GetButtonDown("Jump") && Grounded) {
-            _rigidbody.AddForce(transform.up * JumpHeight);
+            _rigidbody.AddForce(transform.up * JumpAcceleration / _rigidbody.mass);
         }
 
         Grounded = false;

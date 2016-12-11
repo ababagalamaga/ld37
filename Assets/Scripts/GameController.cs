@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour {
     public List<GameObject> Rooms;
 
     private GameObject _playerController;
+    private GameObject _cameraController;
 
     private int _currentRoomId;
     private GameObject _previous;
@@ -24,6 +25,7 @@ public class GameController : MonoBehaviour {
 
     void Start() {
         _playerController = GameObject.FindGameObjectWithTag("Player");
+        _cameraController = GameObject.FindGameObjectWithTag("MainCamera");
 
         _current = Instantiate(Rooms[_currentRoomId]);
         _current.GetComponent<Room>().Initialize();
@@ -32,6 +34,11 @@ public class GameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (_current.GetComponent<Room>().ObjectiveSucced) {
+            _nextUnlocked = true;
+            _current.GetComponent<Room>().ObjectiveSucced = false;
+        }
+
         var nextDoor = _current.transform.FindChild("Door").GetComponent<Door>();
 
         if (_nextUnlocked && !nextDoor.Opened()) {
@@ -98,10 +105,6 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    public void UnlockNext() {
-        _nextUnlocked = true;
-    }
-
     public void MoveToNext() {
         if (_previous != null) {
             Destroy(_previous);
@@ -127,6 +130,7 @@ public class GameController : MonoBehaviour {
         var offset = currentEnterTransform.position - previousEnterTransform.position;
 
         if (_currentRoomId > 0)
+            _cameraController.transform.position -= offset;
             _playerController.transform.position -= offset;
         _previous.transform.position -= offset;
         _current.transform.position -= offset;

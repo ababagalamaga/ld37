@@ -253,7 +253,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 500
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -289,7 +289,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4460a112a0002b4e8194bd40c65bb2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LerpCoeff: 10
+  LookLerpCoeff: 10
+  MoveLerpCoeff: 10
+  Height: 1.6
 --- !u!81 &962102463
 AudioListener:
   m_ObjectHideFlags: 0
@@ -469,10 +471,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2135414539}
-  - component: {fileID: 2135414540}
-  - component: {fileID: 2135414541}
   - component: {fileID: 2135414542}
   - component: {fileID: 2135414543}
+  - component: {fileID: 2135414544}
+  - component: {fileID: 2135414540}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -493,22 +495,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2135414540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2135414538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36c22e36a2a87594989ebb1e43a293dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 4
-  JumpHeight: 10
-  MaxVelocityChange: 1
-  Grounded: 0
---- !u!54 &2135414541
+--- !u!54 &2135414540
 Rigidbody:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -548,3 +535,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sensitivity: 1
+--- !u!114 &2135414544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2135414538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c22e36a2a87594989ebb1e43a293dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 4
+  JumpAcceleration: 200
+  MaxVelocityChange: 5
+  Grounded: 0
