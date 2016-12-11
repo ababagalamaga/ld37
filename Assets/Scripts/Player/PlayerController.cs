@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
     private PlayerMovement _playerMovement;
     private CameraController _cameraController;
     // Use this for initialization
-    void Start () {
+    void Awake () {
 	    _playerMovement = GetComponent<PlayerMovement>();
         _cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
     }
@@ -23,5 +23,8 @@ public class PlayerController : MonoBehaviour {
         _playerMovement.JumpAcceleration = room.PlayerJumpAcceleration;
 
         _cameraController.Height = room.CameraHeight;
+        _cameraController.HeadBobAmount = room.PlayerHeadBobAmount;
+        _cameraController.HeadBobDuration = room.PlayerHeadBobDuration;
+        _cameraController.HeadBobError = room.PlayerHeadBobError;
     }
 }

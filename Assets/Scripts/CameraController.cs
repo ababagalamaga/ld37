@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
     public float HeadBobDuration;
     public float HeadBobLerp;
     public float HeadBobMinSpeed;
+    public float HeadBobError;
     public float PlayerSpeed;
 
     private GameObject _playerController;
@@ -26,13 +27,15 @@ public class CameraController : MonoBehaviour
     }
 
     void Update() {
-        if (PlayerSpeed > HeadBobMinSpeed) {
+        if (PlayerSpeed > HeadBobMinSpeed && HeadBobDuration > 0.0f) {
             _headBobPassed += Time.deltaTime;
             if (_headBobPassed > HeadBobDuration) {
                 _headBobPassed -= HeadBobDuration;
             }
 
-            var delta = Mathf.Sin(_headBobPassed / HeadBobDuration * Mathf.PI * 2.0f) * HeadBobAmount;
+            var passedNorm = _headBobPassed / HeadBobDuration;
+            passedNorm = Mathf.Pow(passedNorm, HeadBobError > 0.0f ? HeadBobError : 1.0f);
+            var delta = Mathf.Sin(passedNorm * Mathf.PI * 2.0f) * HeadBobAmount;
             _headBobOffset = Vector3.Lerp(_headBobOffset, new Vector3(0, delta, 0), Time.deltaTime * HeadBobLerp);
         } else {
             _headBobPassed = 0;
