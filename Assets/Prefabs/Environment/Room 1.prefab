@@ -4258,9 +4258,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b302ff5f9406e8b478d5d58a52f47ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraHeight: 0
+  CameraHeight: 1.6
   BloorAmount: 0
-  Speed: 0
+  PlayerSpeed: 2
+  PlayerMaxVelocityChange: 2
+  PlayerJumpAcceleration: 0
+  ObjectiveSucced: 0
 --- !u!114 &114790076788307084
 MonoBehaviour:
   m_ObjectHideFlags: 1

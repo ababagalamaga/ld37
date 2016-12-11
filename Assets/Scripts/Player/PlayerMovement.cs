@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         Grounded = false;
+        _camera.GetComponent<CameraController>().PlayerSpeed = _rigidbody.velocity.magnitude;
     }
 
     void OnCollisionStay(Collision collision) {
