@@ -67,6 +67,15 @@ ModelImporter:
     100118: speaker001
     100120: lamp
     100122: lamps
+    100124: chair
+    100126: chair_collision
+    100128: coffe_table
+    100130: coffe_table_collision
+    100132: sofa_collision
+    100134: sofa_pillow
+    100136: sofa_pillow_collision
+    100138: stool_collision
+    100140: table_collision
     400000: Box001
     400002: Box002
     400004: Box003
@@ -129,6 +138,15 @@ ModelImporter:
     400118: speaker001
     400120: lamp
     400122: lamps
+    400124: chair
+    400126: chair_collision
+    400128: coffe_table
+    400130: coffe_table_collision
+    400132: sofa_collision
+    400134: sofa_pillow
+    400136: sofa_pillow_collision
+    400138: stool_collision
+    400140: table_collision
     2300000: Box001
     2300002: Box002
     2300004: Box003
@@ -189,6 +207,15 @@ ModelImporter:
     2300114: speaker001
     2300116: lamp
     2300118: lamps
+    2300120: chair
+    2300122: chair_collision
+    2300124: coffe_table
+    2300126: coffe_table_collision
+    2300128: sofa_collision
+    2300130: sofa_pillow
+    2300132: sofa_pillow_collision
+    2300134: stool_collision
+    2300136: table_collision
     3300000: Box001
     3300002: Box002
     3300004: Box003
@@ -249,6 +276,15 @@ ModelImporter:
     3300114: speaker001
     3300116: lamp
     3300118: lamps
+    3300120: chair
+    3300122: chair_collision
+    3300124: coffe_table
+    3300126: coffe_table_collision
+    3300128: sofa_collision
+    3300130: sofa_pillow
+    3300132: sofa_pillow_collision
+    3300134: stool_collision
+    3300136: table_collision
     4300000: room
     4300002: sofa
     4300004: table
@@ -309,6 +345,15 @@ ModelImporter:
     4300114: Box027
     4300116: lamp
     4300118: lamps
+    4300120: sofa_collision
+    4300122: table_collision
+    4300124: chair
+    4300126: chair_collision
+    4300128: coffe_table
+    4300130: coffe_table_collision
+    4300132: stool_collision
+    4300134: sofa_pillow
+    4300136: sofa_pillow_collision
   materials:
     importMaterials: 1
     materialName: 0
