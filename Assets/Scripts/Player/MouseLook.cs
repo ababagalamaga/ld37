@@ -12,7 +12,7 @@ public class MouseLook : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * Sensitivity * Time.deltaTime, 0), Space.World);
-        transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y") * Sensitivity * Time.deltaTime, 0, 0));
+        transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * Sensitivity, 0), Space.World);
+        transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y") * Sensitivity, 0, 0));
     }
 }
