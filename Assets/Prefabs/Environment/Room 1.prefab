@@ -418,8 +418,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4936114631843252}
   - component: {fileID: 114465545023362746}
-  - component: {fileID: 114130491090219870}
   - component: {fileID: 65160215958823800}
+  - component: {fileID: 114684500502548954}
   m_Layer: 0
   m_Name: Room 1
   m_TagString: Untagged
@@ -6609,18 +6609,6 @@ Light:
   m_BounceIntensity: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114130491090219870
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1248798386186868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88158eac18037f149b8fe6d55ac4689f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectiveSucced: 0
 --- !u!114 &114455986218918196
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6653,9 +6641,31 @@ MonoBehaviour:
   PlayerHeadBobAmount: 0.15
   PlayerHeadBobDuration: 1
   PlayerHeadBobError: 4
+  PlayerHeadBobSpeedInfluence: 0.75
   PlayerBlurEnabled: 1
-  PlayerBlurAperture: 1
+  PlayerBlurAperture: 0.6
   PlayerBlurDuration: 1
+  PlayerVignetteEnabled: 0
+  PlayerVignetteValue: 0.6
+  PlayerVignetteDuration: 4
+  PlayerTonemappingEnabled: 0
+  PlayerTonemappingValue: 0
+  PlayerTonemappingDuration: 0
+  ObjectiveSucced: 1
+--- !u!114 &114684500502548954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248798386186868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e7d529e89f23345a32d36951160a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Stamina: 1
+  StaminaDecSpeed: 0.05
+  StaminaIncSpeed: 0.25
   ObjectiveSucced: 0
 --- !u!135 &135040481671641544
 SphereCollider:

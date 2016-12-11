@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
     public float HeadBobLerp;
     public float HeadBobMinSpeed;
     public float HeadBobError;
+    public float HeadBobSpeedInfluence;
     public float PlayerSpeed;
 
     private GameObject _playerController;
@@ -37,9 +38,21 @@ public class CameraController : MonoBehaviour
             passedNorm = Mathf.Pow(passedNorm, HeadBobError > 0.0f ? HeadBobError : 1.0f);
             var delta = Mathf.Sin(passedNorm * Mathf.PI * 2.0f) * HeadBobAmount;
             _headBobOffset = Vector3.Lerp(_headBobOffset, new Vector3(0, delta, 0), Time.deltaTime * HeadBobLerp);
+
+            var speedMult = 1.0f;
+            if (HeadBobAmount > 0.0f) {
+                speedMult = (_headBobOffset.y + HeadBobAmount) * 0.5f / HeadBobAmount;
+            }
+
+            _playerController.GetComponent<PlayerMovement>().HeadBobSpeedMultiplier = 1.0f - HeadBobSpeedInfluence + HeadBobSpeedInfluence * speedMult;
         } else {
             _headBobPassed = 0;
             _headBobOffset = Vector3.Lerp(_headBobOffset, new Vector3(0, 0, 0), Time.deltaTime * HeadBobLerp);
+            var speedMult = 1.0f;
+            if (HeadBobAmount > 0.0f) {
+                speedMult = (_headBobOffset.y + HeadBobAmount) * 0.5f / HeadBobAmount;
+            }
+            _playerController.GetComponent<PlayerMovement>().HeadBobSpeedMultiplier = 1.0f - HeadBobSpeedInfluence + HeadBobSpeedInfluence * speedMult;
         }
     }
 	
