@@ -277,11 +277,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rooms:
-  - {fileID: 1837403436180060, guid: b9cecfd633ab9b84fade22b6d60b3e96, type: 2}
-  - {fileID: 1697643421567746, guid: 9b657fb07884da247bdf2c259b8e2505, type: 2}
-  - {fileID: 1213142416500674, guid: 87c541c3cd16a42428d9f0dff338650c, type: 2}
-  - {fileID: 1387323849864056, guid: 4295cbba660ceca468c96a5cbdc39178, type: 2}
-  - {fileID: 1387323849864056, guid: 4295cbba660ceca468c96a5cbdc39178, type: 2}
+  - {fileID: 1390586013262548, guid: b9cecfd633ab9b84fade22b6d60b3e96, type: 2}
+  - {fileID: 1391442781165654, guid: 9b657fb07884da247bdf2c259b8e2505, type: 2}
+  - {fileID: 1689074768269644, guid: 87c541c3cd16a42428d9f0dff338650c, type: 2}
+  - {fileID: 1331201054365720, guid: 4295cbba660ceca468c96a5cbdc39178, type: 2}
+  - {fileID: 1331201054365720, guid: 4295cbba660ceca468c96a5cbdc39178, type: 2}
 --- !u!4 &1788523090
 Transform:
   m_ObjectHideFlags: 0
