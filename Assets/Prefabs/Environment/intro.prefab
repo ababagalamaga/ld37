@@ -833,9 +833,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b302ff5f9406e8b478d5d58a52f47ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraHeight: 0
+  CameraHeight: 1.6
   BloorAmount: 0
-  Speed: 0
+  PlayerSpeed: 4
+  PlayerMaxVelocityChange: 3
+  PlayerJumpAcceleration: 0
+  PlayerHeadBobAmount: 0
+  PlayerHeadBobDuration: 1
+  PlayerHeadBobError: 1
   ObjectiveSucced: 0
 --- !u!215 &215802703316461960
 ReflectionProbe:

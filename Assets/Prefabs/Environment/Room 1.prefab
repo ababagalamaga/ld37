@@ -4260,9 +4260,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CameraHeight: 1.6
   BloorAmount: 0
-  PlayerSpeed: 2
-  PlayerMaxVelocityChange: 2
+  PlayerSpeed: 1
+  PlayerMaxVelocityChange: 1
   PlayerJumpAcceleration: 0
+  PlayerHeadBobAmount: 0.2
+  PlayerHeadBobDuration: 1
+  PlayerHeadBobError: 4
   ObjectiveSucced: 0
 --- !u!114 &114790076788307084
 MonoBehaviour:

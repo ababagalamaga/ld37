@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
     private PlayerMovement _playerMovement;
     private CameraController _cameraController;
     // Use this for initialization
-    void Start () {
+    void Awake () {
 	    _playerMovement = GetComponent<PlayerMovement>();
         _cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
     }
