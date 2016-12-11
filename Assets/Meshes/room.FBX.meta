@@ -65,6 +65,8 @@ ModelImporter:
     100114: door_handle
     100116: speaker
     100118: speaker001
+    100120: lamp
+    100122: lamps
     400000: Box001
     400002: Box002
     400004: Box003
@@ -125,6 +127,8 @@ ModelImporter:
     400114: door_handle
     400116: speaker
     400118: speaker001
+    400120: lamp
+    400122: lamps
     2300000: Box001
     2300002: Box002
     2300004: Box003
@@ -183,6 +187,8 @@ ModelImporter:
     2300110: door_handle
     2300112: speaker
     2300114: speaker001
+    2300116: lamp
+    2300118: lamps
     3300000: Box001
     3300002: Box002
     3300004: Box003
@@ -241,6 +247,8 @@ ModelImporter:
     3300110: door_handle
     3300112: speaker
     3300114: speaker001
+    3300116: lamp
+    3300118: lamps
     4300000: room
     4300002: sofa
     4300004: table
@@ -299,6 +307,8 @@ ModelImporter:
     4300110: Box025
     4300112: Box026
     4300114: Box027
+    4300116: lamp
+    4300118: lamps
   materials:
     importMaterials: 1
     materialName: 0
