@@ -309,6 +309,7 @@ GameObject:
   - component: {fileID: 2135414543}
   - component: {fileID: 2135414544}
   - component: {fileID: 2135414540}
+  - component: {fileID: 2135414541}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -344,6 +345,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &2135414541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2135414538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df0c38bb314ced14d9ac88eaa9e308b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &2135414542
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -384,3 +396,4 @@ MonoBehaviour:
   JumpAcceleration: 200
   MaxVelocityChange: 5
   Grounded: 0
+  LerpCoeff: 0
