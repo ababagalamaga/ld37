@@ -6,13 +6,17 @@ using UnityEngine.Networking;
 public class Room : MonoBehaviour {
 
     public float CameraHeight;
-    public float BloorAmount;
     public float PlayerSpeed;
     public float PlayerMaxVelocityChange;
     public float PlayerJumpAcceleration;
     public float PlayerHeadBobAmount;
     public float PlayerHeadBobDuration;
     public float PlayerHeadBobError;
+
+    public bool PlayerBlurEnabled;
+    public float PlayerBlurAperture;
+    public float PlayerBlurDuration;
+
     public bool ObjectiveSucced;
 
     private bool _initialized;
