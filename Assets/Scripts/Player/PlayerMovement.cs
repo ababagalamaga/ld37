@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour {
         Grounded = false;
 
         var vel = _rigidbody.velocity.magnitude;
-        _moving = vel > 0.1f;
+        _moving = vel > 0.01f;
 
         _camera.GetComponent<CameraController>().PlayerSpeed = vel;
     }

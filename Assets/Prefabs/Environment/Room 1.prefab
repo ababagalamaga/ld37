@@ -1934,7 +1934,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1644769517830582}
-  m_LocalRotation: {x: 0.29883626, y: 0.64085644, z: 0.64085644, w: -0.29883626}
+  m_LocalRotation: {x: 0.29883623, y: 0.6408564, z: 0.6408564, w: -0.29883623}
   m_LocalPosition: {x: 1.9698327, y: 1.0146102, z: 3.7235901}
   m_LocalScale: {x: 0.9038118, y: 0.9038118, z: 0.9038118}
   m_Children: []
@@ -5937,16 +5937,17 @@ MonoBehaviour:
   PlayerHeadBobAmount: 0.15
   PlayerHeadBobDuration: 1
   PlayerHeadBobError: 4
+  PlayerHeadBobSpeedInfluence: 0.75
   PlayerBlurEnabled: 1
-  PlayerBlurAperture: 0.7
-  PlayerBlurDuration: 0.2
+  PlayerBlurAperture: 0.6
+  PlayerBlurDuration: 1
   PlayerVignetteEnabled: 0
   PlayerVignetteValue: 0.6
   PlayerVignetteDuration: 4
   PlayerTonemappingEnabled: 0
   PlayerTonemappingValue: 0
   PlayerTonemappingDuration: 0
-  ObjectiveSucced: 0
+  ObjectiveSucced: 1
 --- !u!114 &114684500502548954
 MonoBehaviour:
   m_ObjectHideFlags: 1

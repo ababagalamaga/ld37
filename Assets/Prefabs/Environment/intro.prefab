@@ -692,8 +692,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 3.7631936, z: 3.199216}
-  m_Center: {x: 0, y: 0.38159692, z: 0.03461647}
+  m_Size: {x: 2, y: 3.7631936, z: 4.1221433}
+  m_Center: {x: 0, y: 0.38159692, z: -0.42684793}
 --- !u!102 &102011848378165006
 TextMesh:
   serializedVersion: 3
@@ -787,13 +787,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameraHeight: 1.6
-  PlayerSpeed: 3
-  PlayerMaxVelocityChange: 3
+  PlayerSpeed: 4
+  PlayerMaxVelocityChange: 4
   PlayerJumpAcceleration: 0
-  PlayerHeadBobAmount: 0.1
-  PlayerHeadBobDuration: 1
+  PlayerHeadBobAmount: 0.025
+  PlayerHeadBobDuration: 0.5
   PlayerHeadBobError: 0
+  PlayerHeadBobSpeedInfluence: 0.25
   PlayerBlurEnabled: 0
   PlayerBlurAperture: 0
   PlayerBlurDuration: 0
+  PlayerVignetteEnabled: 0
+  PlayerVignetteValue: 0
+  PlayerVignetteDuration: 0
+  PlayerTonemappingEnabled: 0
+  PlayerTonemappingValue: 0
+  PlayerTonemappingDuration: 0
   ObjectiveSucced: 0
