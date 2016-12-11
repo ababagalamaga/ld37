@@ -36,7 +36,6 @@ public class Room : MonoBehaviour {
     void Awake () {
         _initialized = false;
         _playerInRoom = false;
-        ObjectiveSucced = false;
 
         DeInitialize();
 	}
