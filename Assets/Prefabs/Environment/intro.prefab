@@ -773,9 +773,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b302ff5f9406e8b478d5d58a52f47ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraHeight: 0
-  BloorAmount: 0
-  PlayerSpeed: 0
-  PlayerMaxVelocityChange: 0
+  CameraHeight: 1.6
+  PlayerSpeed: 3
+  PlayerMaxVelocityChange: 3
   PlayerJumpAcceleration: 0
+  PlayerHeadBobAmount: 0.1
+  PlayerHeadBobDuration: 1
+  PlayerHeadBobError: 0
+  PlayerBlurEnabled: 0
+  PlayerBlurAperture: 0
+  PlayerBlurDuration: 0
   ObjectiveSucced: 0

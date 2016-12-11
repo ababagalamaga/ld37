@@ -5614,8 +5614,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 3.7631936, z: 3}
-  m_Center: {x: 0, y: 0.38159692, z: 0}
+  m_Size: {x: 2, y: 3.7631936, z: 3.7004719}
+  m_Center: {x: 0, y: 0.38159692, z: -0.35023546}
 --- !u!65 &65160215958823800
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -5870,11 +5870,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b302ff5f9406e8b478d5d58a52f47ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraHeight: 0
-  BloorAmount: 0
-  PlayerSpeed: 0
-  PlayerMaxVelocityChange: 0
+  CameraHeight: 1.4
+  PlayerSpeed: 1.5
+  PlayerMaxVelocityChange: 1.5
   PlayerJumpAcceleration: 0
+  PlayerHeadBobAmount: 0.15
+  PlayerHeadBobDuration: 1
+  PlayerHeadBobError: 4
+  PlayerBlurEnabled: 1
+  PlayerBlurAperture: 1
+  PlayerBlurDuration: 1
   ObjectiveSucced: 0
 --- !u!135 &135040481671641544
 SphereCollider:

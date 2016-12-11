@@ -69,13 +69,15 @@ public class Room : MonoBehaviour {
     }
 
     public void Initialize() {
-        InitTransform(transform);
+        gameObject.SetActive(true);
+        //InitTransform(transform);
 
         _initialized = true;
     }
 
     public void DeInitialize() {
-        DeInitTransform(transform);
+        gameObject.SetActive(false);
+        //DeInitTransform(transform);
 
         _initialized = false;
     }
@@ -85,13 +87,17 @@ public class Room : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        _playerInRoom = true;
+        if (other.transform.tag == "Player") {
+            _playerInRoom = true;
 
-        _playerController.ApplySettings(this);
+            _playerController.ApplySettings(this);
+        }
     }
 
     void OnTriggerExit(Collider other) {
-        _playerInRoom = false;
+        if (other.transform.tag == "Player") {
+            _playerInRoom = false;
+        }
     }
 
     public bool PlayerInRoom() {
