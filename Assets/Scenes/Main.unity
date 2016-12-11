@@ -170,8 +170,10 @@ GameObject:
   - component: {fileID: 962102467}
   - component: {fileID: 962102465}
   - component: {fileID: 962102466}
-  - component: {fileID: 962102468}
   - component: {fileID: 962102469}
+  - component: {fileID: 962102468}
+  - component: {fileID: 962102471}
+  - component: {fileID: 962102470}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -205,11 +207,11 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: -1
+  m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 0
+  m_HDR: 1
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -396,6 +398,66 @@ MonoBehaviour:
   dx11BokehTexture: {fileID: 2800000, guid: a4cdca73d61814d33ac1587f6c163bca, type: 3}
   dx11BokehScale: 1.2
   dx11BokehIntensity: 2.5
+--- !u!114 &962102470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 962102459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6d4281e5d7cd44d8c6e38bc2c1b8d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  intensity: 0
+  chromaticAberration: 0.2
+  axialAberration: 0.5
+  blur: 0
+  blurSpread: 0
+  luminanceDependency: 0.25
+  blurDistance: 2.5
+  vignetteShader: {fileID: 4800000, guid: 627943dc7a9a74286b70a4f694a0acd5, type: 3}
+  separableBlurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
+  chromAberrationShader: {fileID: 4800000, guid: 2b4f29398d9484ccfa9fd220449f5eee,
+    type: 3}
+--- !u!114 &962102471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 962102459}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e50e925fb93c78246bf995d9dc3a2330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 6
+  adaptiveTextureSize: 256
+  remapCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 2
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  exposureAdjustment: 1
+  middleGrey: 0.26
+  white: 2
+  adaptionSpeed: 1.5
+  tonemapper: {fileID: 4800000, guid: 003377fc2620a44939dadde6fe3f8190, type: 3}
+  validRenderTextureFormat: 0
 --- !u!1001 &1258563268
 Prefab:
   m_ObjectHideFlags: 0
@@ -441,7 +503,7 @@ Prefab:
     - target: {fileID: 224920018998867498, guid: 487eb775acdcc584fba048cbd55fe51d,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224920018998867498, guid: 487eb775acdcc584fba048cbd55fe51d,
         type: 2}
@@ -541,12 +603,12 @@ Prefab:
     - target: {fileID: 224445772473621874, guid: 487eb775acdcc584fba048cbd55fe51d,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 443.5
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 224445772473621874, guid: 487eb775acdcc584fba048cbd55fe51d,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -65.66667
       objectReference: {fileID: 0}
     - target: {fileID: 224740086529014720, guid: 487eb775acdcc584fba048cbd55fe51d,
         type: 2}
@@ -561,12 +623,12 @@ Prefab:
     - target: {fileID: 224740086529014720, guid: 487eb775acdcc584fba048cbd55fe51d,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 443.5
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 224740086529014720, guid: 487eb775acdcc584fba048cbd55fe51d,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -197.00002
       objectReference: {fileID: 0}
     - target: {fileID: 224193531810172324, guid: 487eb775acdcc584fba048cbd55fe51d,
         type: 2}
@@ -581,12 +643,12 @@ Prefab:
     - target: {fileID: 224193531810172324, guid: 487eb775acdcc584fba048cbd55fe51d,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 443.5
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 224193531810172324, guid: 487eb775acdcc584fba048cbd55fe51d,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -328.33337
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 487eb775acdcc584fba048cbd55fe51d, type: 2}
@@ -672,7 +734,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2135414540
 Rigidbody:
@@ -740,4 +802,5 @@ MonoBehaviour:
   JumpAcceleration: 200
   MaxVelocityChange: 5
   Grounded: 0
-  LerpCoeff: 0
+  SpeedMultiplier: 1
+  HeadBobSpeedMultiplier: 1

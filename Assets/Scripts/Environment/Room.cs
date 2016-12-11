@@ -17,6 +17,14 @@ public class Room : MonoBehaviour {
     public float PlayerBlurAperture;
     public float PlayerBlurDuration;
 
+    public bool PlayerVignetteEnabled;
+    public float PlayerVignetteValue;
+    public float PlayerVignetteDuration;
+
+    public bool PlayerTonemappingEnabled;
+    public float PlayerTonemappingValue;
+    public float PlayerTonemappingDuration;
+
     public bool ObjectiveSucced;
 
     private bool _initialized;

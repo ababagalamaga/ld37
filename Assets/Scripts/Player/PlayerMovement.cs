@@ -8,16 +8,20 @@ public class PlayerMovement : MonoBehaviour {
     public float JumpAcceleration;
     public float MaxVelocityChange;
     public bool Grounded;
-    public float LerpCoeff;
+    public float SpeedMultiplier;
+    public float HeadBobSpeedMultiplier;
 
     private GameObject _camera;
     private Rigidbody _rigidbody;
+    
+    private bool _moving;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		_camera = GameObject.FindGameObjectWithTag("MainCamera");
 	    _rigidbody = GetComponent<Rigidbody>();
-	}
+        _moving = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -27,7 +31,7 @@ public class PlayerMovement : MonoBehaviour {
         if (Grounded) {
             var targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             targetVelocity = _camera.transform.TransformDirection(targetVelocity);
-            targetVelocity *= Speed;
+            targetVelocity *= Speed * SpeedMultiplier * HeadBobSpeedMultiplier;
             var v = _rigidbody.velocity;
             var velocityChange = (targetVelocity - v);
             velocityChange.x = Mathf.Clamp(velocityChange.x, -MaxVelocityChange, MaxVelocityChange);
@@ -42,7 +46,15 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         Grounded = false;
-        _camera.GetComponent<CameraController>().PlayerSpeed = _rigidbody.velocity.magnitude;
+
+        var vel = _rigidbody.velocity.magnitude;
+        _moving = vel > 0.1f;
+
+        _camera.GetComponent<CameraController>().PlayerSpeed = vel;
+    }
+
+    public bool Moving() {
+        return _moving;
     }
 
     void OnCollisionStay(Collision collision) {
