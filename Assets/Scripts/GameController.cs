@@ -113,13 +113,8 @@ public class GameController : MonoBehaviour {
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (_menu.activeSelf) {
-                Time.timeScale = 1;
-                _menu.SetActive(false);
-            } else {
-                Time.timeScale = 0;
-                _menu.SetActive(true);
-            }
+            _menu.SetActive(!_menu.activeSelf);
+            Time.timeScale = _menu.activeSelf?Time.timeScale = 0:Time.timeScale = 1;
         }
     }
 
@@ -131,6 +126,7 @@ public class GameController : MonoBehaviour {
 
     public void RestartGame() {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
     }
 
     public void Quit()
