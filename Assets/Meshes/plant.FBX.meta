@@ -1,60 +1,27 @@
 fileFormatVersion: 2
-guid: bacbdf0118c20a24baac34a10e862c16
-timeCreated: 1481488864
+guid: 4fbee211c338433429ae54c035a05428
+timeCreated: 1481491093
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: chair
-    100002: rock_chair
-    100004: rock_coffe_table
-    100006: rock_sofa
-    100008: rock_sofa 1
-    100010: rock_stool
-    100012: rock_table
-    100014: rock_table_tv
-    100016: sofa
-    100018: //RootNode
-    100020: stone_speaker
-    100022: stool
-    100024: table
-    400000: chair
-    400002: rock_chair
-    400004: rock_coffe_table
-    400006: rock_sofa
-    400008: rock_sofa 1
-    400010: rock_stool
-    400012: rock_table
-    400014: rock_table_tv
-    400016: sofa
-    400018: //RootNode
-    400020: stone_speaker
-    400022: stool
-    400024: table
-    2300000: rock_chair
-    2300002: rock_coffe_table
-    2300004: rock_sofa
-    2300006: rock_sofa 1
-    2300008: rock_stool
-    2300010: rock_table
-    2300012: rock_table_tv
-    2300014: stone_speaker
-    3300000: rock_chair
-    3300002: rock_coffe_table
-    3300004: rock_sofa
-    3300006: rock_sofa 1
-    3300008: rock_stool
-    3300010: rock_table
-    3300012: rock_table_tv
-    3300014: stone_speaker
-    4300000: rock_sofa
-    4300002: rock_table
-    4300004: rock_chair
-    4300006: rock_stool
-    4300008: rock_sofa
-    4300010: rock_coffe_table
-    4300012: rock_table_tv
-    4300014: stone_speaker
+    100000: //RootNode
+    100002: plant_1
+    100004: plant_2
+    100006: plant_3
+    400000: //RootNode
+    400002: plant_1
+    400004: plant_2
+    400006: plant_3
+    2300000: plant_1
+    2300002: plant_2
+    2300004: plant_3
+    3300000: plant_1
+    3300002: plant_2
+    3300004: plant_3
+    4300000: plant_3
+    4300002: plant_2
+    4300004: plant_1
   materials:
     importMaterials: 1
     materialName: 0
