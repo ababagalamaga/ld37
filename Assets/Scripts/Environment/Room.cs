@@ -10,6 +10,9 @@ public class Room : MonoBehaviour {
     public float PlayerSpeed;
     public float PlayerMaxVelocityChange;
     public float PlayerJumpAcceleration;
+    public float PlayerHeadBobAmount;
+    public float PlayerHeadBobDuration;
+    public float PlayerHeadBobError;
     public bool ObjectiveSucced;
 
     private bool _initialized;
