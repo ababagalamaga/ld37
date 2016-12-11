@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEditor.VersionControl;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class GameController : MonoBehaviour {
 
     public List<GameObject> Rooms;
 
     private GameObject _playerController;
+    private GameObject _menu;
 
     private int _currentRoomId;
     private GameObject _previous;
@@ -24,6 +27,8 @@ public class GameController : MonoBehaviour {
 
     void Start() {
         _playerController = GameObject.FindGameObjectWithTag("Player");
+        _menu = GameObject.FindGameObjectWithTag("Menu");
+        _menu.SetActive(false);
 
         _current = Instantiate(Rooms[_currentRoomId]);
         _current.GetComponent<Room>().Initialize();
@@ -96,6 +101,31 @@ public class GameController : MonoBehaviour {
                 }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            if (_menu.activeSelf) {
+                Time.timeScale = 1;
+                _menu.SetActive(false);
+            } else {
+                Time.timeScale = 0;
+                _menu.SetActive(true);
+            }
+        }
+    }
+
+    public void Continue()
+    {
+        Time.timeScale = 1;
+        _menu.SetActive(false);
+    }
+
+    public void RestartGame() {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 
     public void UnlockNext() {
