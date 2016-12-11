@@ -10,6 +10,7 @@ public class Room : MonoBehaviour {
 
     private bool _moved;
     private bool _initialized;
+    private bool _playerInRoom;
     private GameController _gameController;
 
     // Use this for initialization
@@ -17,6 +18,7 @@ public class Room : MonoBehaviour {
         _gameController = GameObject.FindGameObjectsWithTag("GameController")[0].GetComponent<GameController>();
         _moved = false;
         _initialized = false;
+        _playerInRoom = false;
 
         DeInitialize();
 	}
@@ -70,10 +72,15 @@ public class Room : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        if (!_moved) {
-            _gameController.MoveToNext();
-            _moved = true;
-        }
+        _playerInRoom = true;
+    }
+
+    void OnTriggerExit(Collider other) {
+        _playerInRoom = false;
+    }
+
+    public bool PlayerInRoom() {
+        return _playerInRoom;
     }
 
     // Update is called once per frame
