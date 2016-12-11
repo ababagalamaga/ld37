@@ -14,6 +14,7 @@ public class Door : MonoBehaviour
     private Quaternion _targetRotation;
     private Coroutine _coroutine;
     private Transform _doorRoot;
+    private GameController _gameController;
 
     private enum State {
         CLOSED,
@@ -27,7 +28,8 @@ public class Door : MonoBehaviour
 
     // Use this for initialization
     void Start () {
-	    _trigger = GetComponent<Collider>();
+        _gameController = GameObject.FindGameObjectsWithTag("GameController")[0].GetComponent<GameController>();
+        _trigger = GetComponent<Collider>();
         _doorRoot = transform.FindChild("DoorRoot");
         _initialRotation = _doorRoot.rotation;
 	    _targetRotation = _initialRotation * Quaternion.AngleAxis(-Angle, Vector3.up);
@@ -41,6 +43,7 @@ public class Door : MonoBehaviour
             _canBeClosed = false;
             _coroutine = StartCoroutine(Close());
 	    }
+        _gameController.SetDoorOpened(_state == State.OPENED || _state == State.OPENING);
 	}
 
     void OnTriggerEnter(Collider other) {
