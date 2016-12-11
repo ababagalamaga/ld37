@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour {
     public List<GameObject> Rooms;
 
     private GameObject _playerController;
+    private GameObject _cameraController;
 
     private int _currentRoomId;
     private GameObject _previous;
@@ -24,6 +25,7 @@ public class GameController : MonoBehaviour {
 
     void Start() {
         _playerController = GameObject.FindGameObjectWithTag("Player");
+        _cameraController = GameObject.FindGameObjectWithTag("MainCamera");
 
         _current = Instantiate(Rooms[_currentRoomId]);
         _current.GetComponent<Room>().Initialize();
@@ -128,6 +130,7 @@ public class GameController : MonoBehaviour {
         var offset = currentEnterTransform.position - previousEnterTransform.position;
 
         if (_currentRoomId > 0)
+            _cameraController.transform.position -= offset;
             _playerController.transform.position -= offset;
         _previous.transform.position -= offset;
         _current.transform.position -= offset;

@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour {
     public float JumpAcceleration;
     public float MaxVelocityChange;
     public bool Grounded;
+    public float LerpCoeff;
 
     private GameObject _camera;
     private Rigidbody _rigidbody;
@@ -20,7 +21,6 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
     void FixedUpdate() {

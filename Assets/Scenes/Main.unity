@@ -227,7 +227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4460a112a0002b4e8194bd40c65bb2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LerpCoeff: 10
+  LookLerpCoeff: 10
+  MoveLerpCoeff: 10
   Height: 1.6
 --- !u!81 &962102463
 AudioListener:

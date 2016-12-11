@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float LerpCoeff;
+    public float LookLerpCoeff;
+    public float MoveLerpCoeff;
     public float Height;
 
     private GameObject _playerController;
@@ -17,9 +18,9 @@ public class CameraController : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 	    transform.rotation = Quaternion.Lerp(_playerController.transform.rotation, transform.rotation,
-	        Time.deltaTime * LerpCoeff);
-	    transform.position = _playerController.transform.position + _offset;
+	        Time.deltaTime * LookLerpCoeff);
+	    transform.position = Vector3.Lerp(_playerController.transform.position + _offset, transform.position, Time.deltaTime * MoveLerpCoeff);
 	}
 }
