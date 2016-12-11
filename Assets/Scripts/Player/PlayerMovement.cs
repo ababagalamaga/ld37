@@ -5,49 +5,49 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float Speed;
-    public float JumpHeight;
-    public float MaxVelocityChange;
-    public bool Grounded;
+    public float moveSpeed = 1f;
+    public float jumpPressure = 0f;
+    public float minJumpPower = 0.1f;
+    public float maxJumpPower = 1f;
+    public float pressureCoef = 1f;
+    public bool onGround = false;
 
-    private GameObject _camera;
     private Rigidbody _rigidbody;
 
 	// Use this for initialization
 	void Start () {
-		_camera = GameObject.FindGameObjectWithTag("MainCamera");
 	    _rigidbody = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-
-    void FixedUpdate() {
-        if (Grounded) {
-            var targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            targetVelocity = _camera.transform.TransformDirection(targetVelocity);
-            targetVelocity *= Speed;
-            var v = _rigidbody.velocity;
-            var velocityChange = (targetVelocity - v);
-            velocityChange.x = Mathf.Clamp(velocityChange.x, -MaxVelocityChange, MaxVelocityChange);
-            velocityChange.z = Mathf.Clamp(velocityChange.z, -MaxVelocityChange, MaxVelocityChange);
-            velocityChange.y = 0;
-
-            _rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
+        transform.Translate(moveSpeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, moveSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
+        if (onGround){
+            if (Input.GetButton("Jump")) {
+                if (jumpPressure < maxJumpPower)
+                {
+                    jumpPressure += Time.deltaTime * pressureCoef;
+                }
+                else
+                {
+                    jumpPressure = maxJumpPower;
+                }
+            }
+            else {
+                if (jumpPressure > 0f) {
+                    jumpPressure += minJumpPower;
+                    _rigidbody.AddForce(0, jumpPressure / Time.deltaTime * _rigidbody.mass, 0);
+                    jumpPressure = 0;
+                    onGround = false;
+                }
+            }
+           
         }
-
-        if (Input.GetButtonDown("Jump") && Grounded) {
-            _rigidbody.AddForce(transform.up * JumpHeight);
-        }
-
-        Grounded = false;
     }
-
-    void OnCollisionStay(Collision collision) {
-        if (collision.transform.tag != "Not Ground") {
-            Grounded = true;
-        }
+    void OnCollisionEnter(Collision oter) {
+        onGround = true;
+        //if (oter.gameObject.CompareTag("ground")) {
+        //    onGround = true;
+        //}
     }
 }
