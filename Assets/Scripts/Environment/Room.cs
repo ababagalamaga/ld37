@@ -12,7 +12,6 @@ public class Room : MonoBehaviour {
     public float PlayerJumpAcceleration;
     public bool ObjectiveSucced;
 
-    private bool _moved;
     private bool _initialized;
     private bool _playerInRoom;
     private PlayerController _playerController;
@@ -20,7 +19,6 @@ public class Room : MonoBehaviour {
     // Use this for initialization
     void Awake () {
         _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        _moved = false;
         _initialized = false;
         _playerInRoom = false;
         ObjectiveSucced = false;

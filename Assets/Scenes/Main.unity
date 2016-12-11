@@ -230,6 +230,10 @@ MonoBehaviour:
   LookLerpCoeff: 10
   MoveLerpCoeff: 10
   Height: 1.6
+  HeadBobAmount: 100
+  HeadBobDuration: 1
+  HeadBobLerp: 10
+  HeadBobMinSpeed: 1
 --- !u!81 &962102463
 AudioListener:
   m_ObjectHideFlags: 0
