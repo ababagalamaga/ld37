@@ -234,6 +234,11 @@ MonoBehaviour:
   LookLerpCoeff: 10
   MoveLerpCoeff: 10
   Height: 1.6
+  HeadBobAmount: 0.1
+  HeadBobDuration: 1
+  HeadBobLerp: 10
+  HeadBobMinSpeed: 0.1
+  PlayerSpeed: 0
 --- !u!81 &962102463
 AudioListener:
   m_ObjectHideFlags: 0
@@ -387,7 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rooms:
-  - {fileID: 1248798386186868, guid: b9cecfd633ab9b84fade22b6d60b3e96, type: 2}
+  - {fileID: 1187078314850500, guid: e5ed1a53013bf8d4faeb55c6a62249f2, type: 2}
   - {fileID: 1148544799829488, guid: 9b657fb07884da247bdf2c259b8e2505, type: 2}
   - {fileID: 1188675283767292, guid: 87c541c3cd16a42428d9f0dff338650c, type: 2}
   - {fileID: 1518150672818268, guid: 4295cbba660ceca468c96a5cbdc39178, type: 2}

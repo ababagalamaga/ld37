@@ -65,6 +65,7 @@ public class GameController : MonoBehaviour {
                 if (_nextCurrent.GetComponent<Room>().Initialized()) {
                     if (_nextCurrent.GetComponent<Room>().PlayerInRoom()) {
                         MoveToNext();
+                        nextDoor.transform.GetComponent<BoxCollider>().enabled = false;
                         if (_nextCurrent != null) {
                             if (!_nextCurrent.GetComponent<Room>().Initialized()) {
                                 _nextCurrent.GetComponent<Room>().Initialize();
@@ -85,6 +86,7 @@ public class GameController : MonoBehaviour {
                 if (_nextNext.GetComponent<Room>().Initialized()) {
                     if (_nextNext.GetComponent<Room>().PlayerInRoom()) {
                         MoveToNext();
+                        nextDoor.transform.GetComponent<BoxCollider>().enabled = false;
                         if (_nextCurrent != null) {
                             if (!_nextCurrent.GetComponent<Room>().Initialized()) {
                                 _nextCurrent.GetComponent<Room>().Initialize();
