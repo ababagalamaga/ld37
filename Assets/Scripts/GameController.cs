@@ -16,12 +16,10 @@ public class GameController : MonoBehaviour {
     private GameObject _nextNext;
 
     private bool _nextUnlocked;
-    private bool _nextDoorOpened;
 
     void Awake() {
         _currentRoomId = 0;
         _nextUnlocked = true;
-        _nextDoorOpened = false;
     }
 
     void Start() {
@@ -34,18 +32,33 @@ public class GameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (_nextUnlocked && !_nextDoorOpened) {
+        var nextDoor = _current.transform.FindChild("Door").GetComponent<Door>();
+
+        if (_nextUnlocked && !nextDoor.Opened()) {
             Destroy(_nextCurrent);
             _nextCurrent = null;
-            _nextNext.GetComponent<Room>().Initialize();
+            //_nextNext.GetComponent<Room>().Initialize();
             _nextUnlocked = false;
             ++_currentRoomId;
-            Debug.Log("INC");
         }
-    }
-
-    public void SetDoorOpened(bool opened) {
-        //_nextDoorOpened = opened;
+        if (nextDoor.Opened()) {
+            if (_nextCurrent != null) {
+                if (!_nextCurrent.GetComponent<Room>().Initialized()) {
+                    _nextCurrent.GetComponent<Room>().Initialize();
+                }
+            } else {
+                if (!_nextNext.GetComponent<Room>().Initialized())
+                    _nextNext.GetComponent<Room>().Initialize();
+            }
+        } else {
+            if (_nextCurrent != null) {
+                if (_nextCurrent.GetComponent<Room>().Initialized())
+                    _nextCurrent.GetComponent<Room>().DeInitialize();
+            } else {
+                if (_nextNext.GetComponent<Room>().Initialized())
+                    _nextNext.GetComponent<Room>().DeInitialize();
+            }
+        }
     }
 
     public void UnlockNext() {
@@ -68,7 +81,7 @@ public class GameController : MonoBehaviour {
             SpawnNext();
         }
         MoveBack();
-        _nextCurrent.GetComponent<Room>().Initialize();
+        //_nextCurrent.GetComponent<Room>().Initialize();
     }
 
     private void MoveBack() {
@@ -77,10 +90,8 @@ public class GameController : MonoBehaviour {
 
         var offset = currentEnterTransform.position - previousEnterTransform.position;
 
-        if (_currentRoomId > 0) {
-            Debug.Log(_currentRoomId);
+        if (_currentRoomId > 0)
             _playerController.transform.position -= offset;
-        }
         _previous.transform.position -= offset;
         _current.transform.position -= offset;
         _nextCurrent.transform.position -= offset;

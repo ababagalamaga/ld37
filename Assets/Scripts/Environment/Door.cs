@@ -26,6 +26,10 @@ public class Door : MonoBehaviour
     private State _state;
     private bool _canBeClosed;
 
+    public bool Opened() {
+        return _state != State.CLOSED;
+    }
+
     // Use this for initialization
     void Start () {
         _gameController = GameObject.FindGameObjectsWithTag("GameController")[0].GetComponent<GameController>();
@@ -43,7 +47,6 @@ public class Door : MonoBehaviour
             _canBeClosed = false;
             _coroutine = StartCoroutine(Close());
 	    }
-        _gameController.SetDoorOpened(_state == State.OPENED || _state == State.OPENING);
 	}
 
     void OnTriggerEnter(Collider other) {

@@ -9,37 +9,19 @@ public class Room : MonoBehaviour {
     public float Speed;
 
     private bool _moved;
+    private bool _initialized;
     private GameController _gameController;
 
     // Use this for initialization
     void Awake () {
         _gameController = GameObject.FindGameObjectsWithTag("GameController")[0].GetComponent<GameController>();
         _moved = false;
+        _initialized = false;
 
-        if (transform.gameObject.GetComponent<BoxCollider>() != null) {
-            transform.gameObject.GetComponent<BoxCollider>().enabled = false;
-        }
-        if (transform.gameObject.GetComponent<Rigidbody>() != null) {
-            transform.gameObject.GetComponent<Rigidbody>().Sleep();
-        }
-        if (transform.gameObject.GetComponent<MeshRenderer>() != null) {
-            transform.gameObject.GetComponent<MeshRenderer>().enabled = false;
-        }
-
-        foreach (Transform child in transform) {
-            if (child.gameObject.GetComponent<BoxCollider>() != null) {
-                child.gameObject.GetComponent<BoxCollider>().enabled = false;
-            }
-            if (child.gameObject.GetComponent<Rigidbody>() != null) {
-                child.gameObject.GetComponent<Rigidbody>().Sleep();
-            }
-            if (child.gameObject.GetComponent<MeshRenderer>() != null) {
-                child.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            }
-        }
+        DeInitialize();
 	}
 
-    public void Initialize() {
+    private void InitTransform(Transform transform) {
         if (transform.gameObject.GetComponent<BoxCollider>() != null) {
             transform.gameObject.GetComponent<BoxCollider>().enabled = true;
         }
@@ -51,23 +33,46 @@ public class Room : MonoBehaviour {
         }
 
         foreach (Transform child in transform) {
-            if (child.gameObject.GetComponent<BoxCollider>() != null) {
-                child.gameObject.GetComponent<BoxCollider>().enabled = true;
-            }
-            if (child.gameObject.GetComponent<Rigidbody>() != null) {
-                child.gameObject.GetComponent<Rigidbody>().WakeUp();
-            }
-            if (child.gameObject.GetComponent<MeshRenderer>() != null) {
-                child.gameObject.GetComponent<MeshRenderer>().enabled = true;
-            }
+            InitTransform(child);
         }
+    }
+
+    private void DeInitTransform(Transform transform) {
+        if (transform.gameObject.GetComponent<BoxCollider>() != null) {
+            transform.gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
+        if (transform.gameObject.GetComponent<Rigidbody>() != null) {
+            transform.gameObject.GetComponent<Rigidbody>().Sleep();
+        }
+        if (transform.gameObject.GetComponent<MeshRenderer>() != null) {
+            transform.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        }
+
+        foreach (Transform child in transform) {
+            DeInitTransform(child);
+        }
+    }
+
+    public void Initialize() {
+        InitTransform(transform);
+
+        _initialized = true;
+    }
+
+    public void DeInitialize() {
+        DeInitTransform(transform);
+
+        _initialized = false;
+    }
+
+    public bool Initialized() {
+        return _initialized;
     }
 
     void OnTriggerEnter(Collider other) {
         if (!_moved) {
             _gameController.MoveToNext();
             _moved = true;
-            Debug.Log("HERE");
         }
     }
 
