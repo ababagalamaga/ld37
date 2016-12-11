@@ -37,26 +37,63 @@ public class GameController : MonoBehaviour {
         if (_nextUnlocked && !nextDoor.Opened()) {
             Destroy(_nextCurrent);
             _nextCurrent = null;
-            //_nextNext.GetComponent<Room>().Initialize();
             _nextUnlocked = false;
             ++_currentRoomId;
         }
+
         if (nextDoor.Opened()) {
             if (_nextCurrent != null) {
                 if (!_nextCurrent.GetComponent<Room>().Initialized()) {
                     _nextCurrent.GetComponent<Room>().Initialize();
+                    //Debug.Log(" _nextCurrent.GetComponent<Room>().Initialize();");
                 }
             } else {
-                if (!_nextNext.GetComponent<Room>().Initialized())
+                if (!_nextNext.GetComponent<Room>().Initialized()) {
                     _nextNext.GetComponent<Room>().Initialize();
+                    //Debug.Log(" _nextNext.GetComponent<Room>().Initialize()");
+                }
             }
         } else {
             if (_nextCurrent != null) {
-                if (_nextCurrent.GetComponent<Room>().Initialized())
-                    _nextCurrent.GetComponent<Room>().DeInitialize();
+                if (_nextCurrent.GetComponent<Room>().Initialized()) {
+                    if (_nextCurrent.GetComponent<Room>().PlayerInRoom()) {
+                        MoveToNext();
+                        if (_nextCurrent != null) {
+                            if (!_nextCurrent.GetComponent<Room>().Initialized()) {
+                                _nextCurrent.GetComponent<Room>().Initialize();
+                                //Debug.Log(" _nextCurrent.GetComponent<Room>().Initialize();");
+                            }
+                        } else {
+                            if (!_nextNext.GetComponent<Room>().Initialized()) {
+                                _nextNext.GetComponent<Room>().Initialize();
+                                //Debug.Log(" _nextNext.GetComponent<Room>().Initialize()");
+                            }
+                        }
+                    } else {
+                        _nextCurrent.GetComponent<Room>().DeInitialize();
+                        //Debug.Log(" _nextCurrent.GetComponent<Room>().DeInitialize()");
+                    }
+                }
             } else {
-                if (_nextNext.GetComponent<Room>().Initialized())
-                    _nextNext.GetComponent<Room>().DeInitialize();
+                if (_nextNext.GetComponent<Room>().Initialized()) {
+                    if (_nextNext.GetComponent<Room>().PlayerInRoom()) {
+                        MoveToNext();
+                        if (_nextCurrent != null) {
+                            if (!_nextCurrent.GetComponent<Room>().Initialized()) {
+                                _nextCurrent.GetComponent<Room>().Initialize();
+                                //Debug.Log(" _nextCurrent.GetComponent<Room>().Initialize();");
+                            }
+                        } else {
+                            if (!_nextNext.GetComponent<Room>().Initialized()) {
+                                _nextNext.GetComponent<Room>().Initialize();
+                                //Debug.Log(" _nextNext.GetComponent<Room>().Initialize()");
+                            }
+                        }
+                    } else {
+                        _nextNext.GetComponent<Room>().DeInitialize();
+                        //Debug.Log(" _nextNext.GetComponent<Room>().DeInitialize()");
+                    }
+                }
             }
         }
     }
@@ -81,7 +118,6 @@ public class GameController : MonoBehaviour {
             SpawnNext();
         }
         MoveBack();
-        //_nextCurrent.GetComponent<Room>().Initialize();
     }
 
     private void MoveBack() {
