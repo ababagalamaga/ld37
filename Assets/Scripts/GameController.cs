@@ -33,6 +33,7 @@ public class GameController : MonoBehaviour {
         _cameraController = GameObject.FindGameObjectWithTag("MainCamera");
 
         _current = Instantiate(Rooms[_currentRoomId]);
+        _playerController.GetComponent<PlayerController>().ApplySettings(_current.GetComponent<Room>());
         _current.GetComponent<Room>().Initialize();
         SpawnNext();
     }

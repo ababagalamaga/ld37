@@ -6,10 +6,17 @@ using UnityEngine.Networking;
 public class Room : MonoBehaviour {
 
     public float CameraHeight;
-    public float BloorAmount;
     public float PlayerSpeed;
     public float PlayerMaxVelocityChange;
     public float PlayerJumpAcceleration;
+    public float PlayerHeadBobAmount;
+    public float PlayerHeadBobDuration;
+    public float PlayerHeadBobError;
+
+    public bool PlayerBlurEnabled;
+    public float PlayerBlurAperture;
+    public float PlayerBlurDuration;
+
     public bool ObjectiveSucced;
 
     private bool _initialized;
@@ -18,13 +25,16 @@ public class Room : MonoBehaviour {
 
     // Use this for initialization
     void Awake () {
-        _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         _initialized = false;
         _playerInRoom = false;
         ObjectiveSucced = false;
 
         DeInitialize();
 	}
+
+    void Start() {
+        _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    }
 
     private void InitTransform(Transform transform) {
         if (transform.gameObject.GetComponent<BoxCollider>() != null) {

@@ -216,6 +216,7 @@ ModelImporter:
     2300132: sofa_pillow_collision
     2300134: stool_collision
     2300136: table_collision
+    2300138: //RootNode
     3300000: Box001
     3300002: Box002
     3300004: Box003
@@ -285,6 +286,7 @@ ModelImporter:
     3300132: sofa_pillow_collision
     3300134: stool_collision
     3300136: table_collision
+    3300138: //RootNode
     4300000: room
     4300002: sofa
     4300004: table
