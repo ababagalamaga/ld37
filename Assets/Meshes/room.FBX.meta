@@ -53,6 +53,18 @@ ModelImporter:
     100090: window002
     100092: window003
     100094: window1
+    100096: Box019
+    100098: Box020
+    100100: Box021
+    100102: Box022
+    100104: Box023
+    100106: Box024
+    100108: Box025
+    100110: Box026
+    100112: Box027
+    100114: door_handle
+    100116: speaker
+    100118: speaker001
     400000: Box001
     400002: Box002
     400004: Box003
@@ -101,6 +113,18 @@ ModelImporter:
     400090: window002
     400092: window003
     400094: window1
+    400096: Box019
+    400098: Box020
+    400100: Box021
+    400102: Box022
+    400104: Box023
+    400106: Box024
+    400108: Box025
+    400110: Box026
+    400112: Box027
+    400114: door_handle
+    400116: speaker
+    400118: speaker001
     2300000: Box001
     2300002: Box002
     2300004: Box003
@@ -147,6 +171,18 @@ ModelImporter:
     2300086: window002
     2300088: window003
     2300090: window1
+    2300092: Box019
+    2300094: Box020
+    2300096: Box021
+    2300098: Box022
+    2300100: Box023
+    2300102: Box024
+    2300104: Box025
+    2300106: Box026
+    2300108: Box027
+    2300110: door_handle
+    2300112: speaker
+    2300114: speaker001
     3300000: Box001
     3300002: Box002
     3300004: Box003
@@ -193,6 +229,18 @@ ModelImporter:
     3300086: window002
     3300088: window003
     3300090: window1
+    3300092: Box019
+    3300094: Box020
+    3300096: Box021
+    3300098: Box022
+    3300100: Box023
+    3300102: Box024
+    3300104: Box025
+    3300106: Box026
+    3300108: Box027
+    3300110: door_handle
+    3300112: speaker
+    3300114: speaker001
     4300000: room
     4300002: sofa
     4300004: table
@@ -239,6 +287,18 @@ ModelImporter:
     4300086: Box003
     4300088: Box012
     4300090: Box018
+    4300092: door_handle
+    4300094: speaker
+    4300096: speaker001
+    4300098: Box019
+    4300100: Box020
+    4300102: Box021
+    4300104: Box022
+    4300106: Box023
+    4300108: Box024
+    4300110: Box025
+    4300112: Box026
+    4300114: Box027
   materials:
     importMaterials: 1
     materialName: 0
