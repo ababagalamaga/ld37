@@ -2221,7 +2221,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1644769517830582}
-  m_LocalRotation: {x: 0.29883626, y: 0.64085644, z: 0.64085644, w: -0.29883626}
+  m_LocalRotation: {x: 0.29883623, y: 0.6408564, z: 0.6408564, w: -0.29883623}
   m_LocalPosition: {x: 1.9698327, y: 1.0146102, z: 3.7235901}
   m_LocalScale: {x: 0.9038118, y: 0.9038118, z: 0.9038118}
   m_Children: []
@@ -6813,16 +6813,22 @@ MonoBehaviour:
   PlayerSpeed: 3
   PlayerMaxVelocityChange: 3
   PlayerJumpAcceleration: 0
-  PlayerHeadBobAmount: 0.05
+  PlayerHeadBobAmount: 0.025
+  PlayerHeadBobStandingMult: 0.1
   PlayerHeadBobMinSpeed: 0
-  PlayerHeadBobDuration: 0.75
+  PlayerHeadBobDuration: 0.5
   PlayerHeadBobError: 1
   PlayerHeadBobSpeedInfluence: 0.25
   PlayerHeadBobRotationAmount: 0.01
   PlayerHeadBobRotationPhase: 3.14
-  PlayerHeadBobRotationPhaseMult: 0
+  PlayerHeadBobRotationPhaseMult: 1
   PlayerHeadBobRotationLerp: 10
-  PlayerHeadBobRotationDuration: 1.5
+  PlayerHeadBobRotationDuration: 1
+  PlayerHeadBobForwardAmount: 0
+  PlayerHeadBobForwardPhase: 0
+  PlayerHeadBobForwardPhaseMult: 0
+  PlayerHeadBobForwardLerp: 0
+  PlayerHeadBobForwardDuration: 0
   MaxCameraAngle: 280
   MinCameraAngle: 80
   PlayerBlurEnabled: 0

@@ -39,6 +39,7 @@ public class RoomBehaviorLava : MonoBehaviour {
             Destroy(this);
 	    } else if (LavaSuccessTrigger != null && LavaSuccessTrigger.GetComponent<LavaSuccessNotifier>().Triggered) {
 	        _room.ObjectiveSucced = true;
+            Destroy(this);
         }
     }
 }
