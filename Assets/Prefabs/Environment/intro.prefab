@@ -814,7 +814,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1058468495573214}
-  m_Text: The living Room
+  m_Text: The Living Room
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
