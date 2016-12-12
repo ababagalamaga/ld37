@@ -44,6 +44,7 @@ public class CameraController : MonoBehaviour
     // Use this for initialization
     void Start () {
 	    _playerController = GameObject.FindGameObjectWithTag("Player");
+        _currentHeight = 1.6f;
         _headBobOffset = new Vector3(0, 0, 0);
         _headBobRotation = Quaternion.identity;
         _headBobForward = Quaternion.identity;
