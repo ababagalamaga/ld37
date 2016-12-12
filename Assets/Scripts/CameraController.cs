@@ -98,19 +98,22 @@ public class CameraController : MonoBehaviour
             passedRotationNorm = Mathf.Pow(passedRotationNorm, HeadBobError > 0.0f ? HeadBobError : 1.0f);
 
             var posDelta = Mathf.Sin(passedNorm * Mathf.PI * 2.0f) * HeadBobAmount;
-            if (posDelta > 0.7 * HeadBobAmount && step > 0) {
-                step = -1;
-                _audioSource.PlayOneShot(RightStep);
-            }
-            if (posDelta < -0.7 * HeadBobAmount && step < 0) {
-                step = 1;
-                _audioSource.PlayOneShot(LeftStep);
-            }
             var rotDelta = Mathf.Sin(((passedRotationNorm * Mathf.PI * 2.0f) + HeadBobRotationPhase) * HeadBobRotationPhaseMult) * HeadBobRotationAmount;
 
             if (_playerSpeed <= HeadBobMinSpeed) {
                 posDelta *= HeadBobStandingMult;
                 rotDelta *= HeadBobStandingMult;
+            } else {
+                if (posDelta > 0.7 * HeadBobAmount && step > 0)
+                {
+                    step = -1;
+                    _audioSource.PlayOneShot(RightStep, 0.1f);
+                }
+                if (posDelta < -0.7 * HeadBobAmount && step < 0)
+                {
+                    step = 1;
+                    _audioSource.PlayOneShot(LeftStep, 0.1f);
+                }
             }
 
             _headBobOffset = Vector3.Lerp(_headBobOffset, new Vector3(0, posDelta, 0), Time.deltaTime * HeadBobLerp);
