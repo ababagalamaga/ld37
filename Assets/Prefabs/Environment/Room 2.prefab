@@ -6814,7 +6814,7 @@ MonoBehaviour:
   PlayerMaxVelocityChange: 3
   PlayerJumpAcceleration: 0
   PlayerHeadBobAmount: 0.025
-  PlayerHeadBobStandingMult: 0.1
+  PlayerHeadBobStandingMult: 0.025
   PlayerHeadBobMinSpeed: 0
   PlayerHeadBobDuration: 0.5
   PlayerHeadBobError: 1
@@ -6829,6 +6829,8 @@ MonoBehaviour:
   PlayerHeadBobForwardPhaseMult: 0
   PlayerHeadBobForwardLerp: 0
   PlayerHeadBobForwardDuration: 0
+  LeftStep: {fileID: 0}
+  RightStep: {fileID: 0}
   MaxCameraAngle: 280
   MinCameraAngle: 80
   PlayerBlurEnabled: 0

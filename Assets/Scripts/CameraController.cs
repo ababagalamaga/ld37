@@ -83,7 +83,7 @@ public class CameraController : MonoBehaviour
                 var forwardDeltaX = Mathf.Sin(((passedForwardNorm * Mathf.PI * 2.0f) + HeadBobForwardPhase) * HeadBobForwardPhaseMult) * HeadBobForwardAmount;
                 var forwardDeltaY = Mathf.Cos(((passedForwardNorm * Mathf.PI * 2.0f) + HeadBobForwardPhase + Mathf.PI * 1.0f) * HeadBobForwardPhaseMult) * HeadBobForwardAmount;
 
-                if (_playerSpeed < HeadBobMinSpeed) {
+                if (_playerSpeed <= HeadBobMinSpeed) {
                     forwardDeltaX *= HeadBobStandingMult;
                     forwardDeltaY *= HeadBobStandingMult;
                 }
@@ -103,7 +103,7 @@ public class CameraController : MonoBehaviour
                 _audioSource.PlayOneShot(LeftStep);
             var rotDelta = Mathf.Sin(((passedRotationNorm * Mathf.PI * 2.0f) + HeadBobRotationPhase) * HeadBobRotationPhaseMult) * HeadBobRotationAmount;
 
-            if (_playerSpeed < HeadBobMinSpeed) {
+            if (_playerSpeed <= HeadBobMinSpeed) {
                 posDelta *= HeadBobStandingMult;
                 rotDelta *= HeadBobStandingMult;
             }
