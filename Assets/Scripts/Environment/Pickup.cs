@@ -6,6 +6,9 @@ public class Pickup : MonoBehaviour {
 
     public bool Selected;
     public bool IsGlasses;
+    public string Property;
+    public Color Highlight;
+    public Color Real;
 
     private bool _nextFrameHide;
 
@@ -17,9 +20,9 @@ public class Pickup : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	    if (Selected) {
-	        GetComponent<Renderer>().material.SetFloat("_Outline", 0.017f);
+	        GetComponent<Renderer>().material.SetColor(Property, Highlight);
 	    } else {
-	        GetComponent<Renderer>().material.SetFloat("_Outline", 0.0f);
+	        GetComponent<Renderer>().material.SetColor(Property, Real);
         }
 	}
 

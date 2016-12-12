@@ -175,8 +175,7 @@ public class PlayerController : MonoBehaviour {
         _vignettePassed = 0.0f;
     }
 
-    public void ApplyContrastSettings(bool enabled, float duration, float value)
-    {
+    public void ApplyContrastSettings(bool enabled, float duration, float value) {
         _tonemappingEnabled = enabled;
         if (_tonemappingEnabled) {
             _tonemapping.enabled = _tonemappingEnabled;
