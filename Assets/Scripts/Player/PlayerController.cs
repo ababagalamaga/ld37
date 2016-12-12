@@ -5,6 +5,9 @@ using UnityStandardAssets.ImageEffects;
 
 public class PlayerController : MonoBehaviour {
 
+    public LayerMask RaycastMask;
+    public float MaxRaycastDist;
+
     private PlayerMovement _playerMovement;
     private CameraController _cameraController;
 
@@ -87,7 +90,23 @@ public class PlayerController : MonoBehaviour {
             _tonemapping.limitMinimum = _targetTonemappingValue;
             _tonemapping.enabled = _tonemappingEnabled;
 	    }
-	}
+
+        RaycastHit hit;
+        Ray ray = _cameraController.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit, MaxRaycastDist, RaycastMask)) {
+            Transform objectHit = hit.transform;
+            if (objectHit.gameObject.GetComponent<Pickup>() != null) {
+                var pickup = objectHit.gameObject.GetComponent<Pickup>();
+                pickup.Selected = true;
+                if (Input.GetButtonDown("Fire1")) {
+                    pickup.Pick(this);
+                }
+            }
+
+            // Do something with the object that was hit by the raycast.
+        }
+    }
 
     public void ApplySettings(Room room) {
         _playerMovement.Speed = room.PlayerSpeed;

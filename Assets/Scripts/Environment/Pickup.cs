@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pickup : MonoBehaviour {
 
     public bool Selected;
+    
 
 	// Use this for initialization
 	void Start () {
@@ -18,5 +19,13 @@ public class Pickup : MonoBehaviour {
 	    } else {
 	        GetComponent<Renderer>().material.SetFloat("_Outline", 0.0f);
         }
+	}
+
+    void LateUpdate() {
+	    Selected = false;
+    }
+
+    public void Pick(PlayerController playerController) {
+        
     }
 }

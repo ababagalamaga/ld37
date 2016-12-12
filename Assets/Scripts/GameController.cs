@@ -40,6 +40,10 @@ public class GameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        Cursor.lockState = CursorLockMode.Locked;
+        //if (Input.GetKeyDown("escape"))
+        //    Cursor.lockState = CursorLockMode.None;
+
         if (_current.GetComponent<Room>().ObjectiveSucced) {
             _nextUnlocked = true;
             _current.GetComponent<Room>().ObjectiveSucced = false;
