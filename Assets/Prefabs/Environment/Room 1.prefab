@@ -6739,12 +6739,12 @@ MonoBehaviour:
   PlayerMaxVelocityChange: 1.5
   PlayerJumpAcceleration: 0
   PlayerHeadBobAmount: 0.15
-  PlayerHeadBobMinSpeed: 0.2
+  PlayerHeadBobMinSpeed: 0.1
   PlayerHeadBobDuration: 1
   PlayerHeadBobError: 4
-  PlayerHeadBobSpeedInfluence: 0.75
-  PlayerHeadBobRotationAmount: 0.035
-  PlayerHeadBobRotationPhase: 3.14
+  PlayerHeadBobSpeedInfluence: 0.85
+  PlayerHeadBobRotationAmount: 0.025
+  PlayerHeadBobRotationPhase: 1.67
   PlayerHeadBobRotationPhaseMult: 1
   PlayerHeadBobRotationLerp: 10
   PlayerHeadBobRotationDuration: 1
