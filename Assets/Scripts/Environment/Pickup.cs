@@ -5,11 +5,13 @@ using UnityEngine;
 public class Pickup : MonoBehaviour {
 
     public bool Selected;
-    
+    public bool IsGlasses;
+
+    private bool _nextFrameHide;
 
 	// Use this for initialization
 	void Start () {
-		
+	    _nextFrameHide = false;
 	}
 	
 	// Update is called once per frame
@@ -22,10 +24,19 @@ public class Pickup : MonoBehaviour {
 	}
 
     void LateUpdate() {
-	    Selected = false;
+        if (_nextFrameHide) {
+            Selected = false;
+            _nextFrameHide = false;
+        }
+        if (Selected) {
+            _nextFrameHide = true;
+        }
     }
 
     public void Pick(PlayerController playerController) {
-        
+        if (IsGlasses) {
+           playerController.ApplyBlurSettings(false, 0.1f, 0.0f);
+        }
+        Destroy(gameObject);
     }
 }
