@@ -10,6 +10,7 @@ public class Room : MonoBehaviour {
     public float PlayerMaxVelocityChange;
     public float PlayerJumpAcceleration;
     public float PlayerHeadBobAmount;
+    public float PlayerHeadBobStandingMult;
     public float PlayerHeadBobMinSpeed;
     public float PlayerHeadBobDuration;
     public float PlayerHeadBobError;
@@ -24,6 +25,9 @@ public class Room : MonoBehaviour {
     public float PlayerHeadBobForwardPhaseMult;
     public float PlayerHeadBobForwardLerp;
     public float PlayerHeadBobForwardDuration;
+
+    public AudioClip LeftStep;
+    public AudioClip RightStep;
 
     public float MaxCameraAngle = 280.0f;
     public float MinCameraAngle = 80.0f;
