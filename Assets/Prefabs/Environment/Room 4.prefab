@@ -7103,6 +7103,7 @@ MonoBehaviour:
   PlayerMaxVelocityChange: 3
   PlayerJumpAcceleration: 0
   PlayerHeadBobAmount: 0.05
+  PlayerHeadBobStandingMult: 0.5
   PlayerHeadBobMinSpeed: 0
   PlayerHeadBobDuration: 0.75
   PlayerHeadBobError: 1
@@ -7119,8 +7120,8 @@ MonoBehaviour:
   PlayerHeadBobForwardDuration: 3
   MaxCameraAngle: 280
   MinCameraAngle: 80
-  PlayerBlurEnabled: 0
-  PlayerBlurAperture: 0
+  PlayerBlurEnabled: 1
+  PlayerBlurAperture: 1
   PlayerBlurDuration: 0.2
   PlayerVignetteEnabled: 0
   PlayerVignetteValue: 0

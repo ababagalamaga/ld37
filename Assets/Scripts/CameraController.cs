@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour
     public float MoveLerpCoeff;
 
     public float HeadBobAmount;
+    public float HeadBobStandingMult;
     public float HeadBobDuration;
     public float HeadBobLerp;
     public float HeadBobMinSpeed;
@@ -56,7 +57,7 @@ public class CameraController : MonoBehaviour
     void Update() {
         _currentHeight = Mathf.Lerp(_currentHeight, _targetHeight, Time.deltaTime * 2.0f);
 
-        if (_playerSpeed > HeadBobMinSpeed && HeadBobDuration > 0.0f && HeadBobRotationDuration > 0.0f) {
+        if ((_playerSpeed > HeadBobMinSpeed || HeadBobStandingMult > 0.0f) && HeadBobDuration > 0.0f && HeadBobRotationDuration > 0.0f) {
             _headBobPassed += Time.deltaTime;
             if (_headBobPassed > HeadBobDuration) {
                 _headBobPassed -= HeadBobDuration;
@@ -78,6 +79,11 @@ public class CameraController : MonoBehaviour
                 var forwardDeltaX = Mathf.Sin(((passedForwardNorm * Mathf.PI * 2.0f) + HeadBobForwardPhase) * HeadBobForwardPhaseMult) * HeadBobForwardAmount;
                 var forwardDeltaY = Mathf.Cos(((passedForwardNorm * Mathf.PI * 2.0f) + HeadBobForwardPhase + Mathf.PI * 1.0f) * HeadBobForwardPhaseMult) * HeadBobForwardAmount;
 
+                if (_playerSpeed < HeadBobMinSpeed) {
+                    forwardDeltaX *= HeadBobStandingMult;
+                    forwardDeltaY *= HeadBobStandingMult;
+                }
+
                 _headBobForward = Quaternion.Lerp(_headBobForward, Quaternion.LookRotation(new Vector3(forwardDeltaX, forwardDeltaY, HeadBobForwardAmount).normalized), Time.deltaTime * HeadBobForwardLerp);
             }
 
@@ -88,6 +94,11 @@ public class CameraController : MonoBehaviour
 
             var posDelta = Mathf.Sin(passedNorm * Mathf.PI * 2.0f) * HeadBobAmount;
             var rotDelta = Mathf.Sin(((passedRotationNorm * Mathf.PI * 2.0f) + HeadBobRotationPhase) * HeadBobRotationPhaseMult) * HeadBobRotationAmount;
+
+            if (_playerSpeed < HeadBobMinSpeed) {
+                posDelta *= HeadBobStandingMult;
+                rotDelta *= HeadBobStandingMult;
+            }
 
             _headBobOffset = Vector3.Lerp(_headBobOffset, new Vector3(0, posDelta, 0), Time.deltaTime * HeadBobLerp);
             _headBobRotation = Quaternion.Lerp(_headBobRotation, Quaternion.LookRotation(Vector3.forward, new Vector3(rotDelta, 1, 0).normalized), Time.deltaTime * HeadBobRotationLerp);

@@ -2956,7 +2956,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1473391229526980}
-  m_LocalRotation: {x: 0.29883626, y: 0.64085644, z: 0.64085644, w: -0.29883626}
+  m_LocalRotation: {x: 0.29883623, y: 0.6408564, z: 0.6408564, w: -0.29883623}
   m_LocalPosition: {x: 1.9698327, y: 1.0146102, z: 3.7235901}
   m_LocalScale: {x: 0.9038118, y: 0.9038118, z: 0.9038118}
   m_Children: []
@@ -6663,8 +6663,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 3.7631936, z: 3.7004719}
-  m_Center: {x: 0, y: 0.38159692, z: -0.35023546}
+  m_Size: {x: 2, y: 3.7631936, z: 2.3279145}
+  m_Center: {x: 0, y: 0.38159692, z: -1.036511}
 --- !u!65 &65143418832063250
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -6735,8 +6735,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.6011555, y: 2.8861847, z: 3.208271}
-  m_Center: {x: 0.4094082, y: 0.94309235, z: -0.8310466}
+  m_Size: {x: 3.6011555, y: 2.8861847, z: 1.8206959}
+  m_Center: {x: 0.4094082, y: 0.94309235, z: -0.137259}
 --- !u!65 &65622267867604778
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -7047,6 +7047,11 @@ MonoBehaviour:
   PlayerHeadBobRotationPhaseMult: 1
   PlayerHeadBobRotationLerp: 10
   PlayerHeadBobRotationDuration: 0.6
+  PlayerHeadBobForwardAmount: 0
+  PlayerHeadBobForwardPhase: 0
+  PlayerHeadBobForwardPhaseMult: 0
+  PlayerHeadBobForwardLerp: 0
+  PlayerHeadBobForwardDuration: 0
   MaxCameraAngle: 280
   MinCameraAngle: 80
   PlayerBlurEnabled: 0
