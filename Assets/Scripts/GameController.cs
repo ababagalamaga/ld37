@@ -53,76 +53,79 @@ public class GameController : MonoBehaviour {
             _current.GetComponent<Room>().ObjectiveSucced = false;
         }
 
-        var nextDoor = _current.transform.FindChild("Door").GetComponent<Door>();
+        var nextDoorObject = _current.transform.FindChild("Door");
+        if (nextDoorObject != null) {
+            var nextDoor = nextDoorObject.GetComponent<Door>();
 
-        if (_nextUnlocked && !nextDoor.Opened()) {
-            Destroy(_nextCurrent);
-            _nextCurrent = null;
-            _nextUnlocked = false;
-            ++_currentRoomId;
-        }
-
-        if (nextDoor.Opened()) {
-            if (_nextCurrent != null) {
-                if (!_nextCurrent.GetComponent<Room>().Initialized()) {
-                    _nextCurrent.GetComponent<Room>().Initialize();
-                    //Debug.Log(" _nextCurrent.GetComponent<Room>().Initialize();");
-                }
-            } else {
-                if (!_nextNext.GetComponent<Room>().Initialized()) {
-                    _nextNext.GetComponent<Room>().Initialize();
-                    //Debug.Log(" _nextNext.GetComponent<Room>().Initialize()");
-                }
+            if (_nextUnlocked && !nextDoor.Opened()) {
+                Destroy(_nextCurrent);
+                _nextCurrent = null;
+                _nextUnlocked = false;
+                ++_currentRoomId;
             }
-        } else {
-            if (_nextCurrent != null) {
-                if (_nextCurrent.GetComponent<Room>().Initialized()) {
-                    if (_nextCurrent.GetComponent<Room>().PlayerInRoom()) {
-                        MoveToNext();
-                        nextDoor.transform.GetComponent<BoxCollider>().enabled = false;
-                        if (_nextCurrent != null) {
-                            if (!_nextCurrent.GetComponent<Room>().Initialized()) {
-                                _nextCurrent.GetComponent<Room>().Initialize();
-                                //Debug.Log(" _nextCurrent.GetComponent<Room>().Initialize();");
-                            }
-                        } else {
-                            if (!_nextNext.GetComponent<Room>().Initialized()) {
-                                _nextNext.GetComponent<Room>().Initialize();
-                                //Debug.Log(" _nextNext.GetComponent<Room>().Initialize()");
-                            }
-                        }
-                    } else {
-                        _nextCurrent.GetComponent<Room>().DeInitialize();
-                        //Debug.Log(" _nextCurrent.GetComponent<Room>().DeInitialize()");
+
+            if (nextDoor.Opened()) {
+                if (_nextCurrent != null) {
+                    if (!_nextCurrent.GetComponent<Room>().Initialized()) {
+                        _nextCurrent.GetComponent<Room>().Initialize();
+                        //Debug.Log(" _nextCurrent.GetComponent<Room>().Initialize();");
+                    }
+                } else {
+                    if (!_nextNext.GetComponent<Room>().Initialized()) {
+                        _nextNext.GetComponent<Room>().Initialize();
+                        //Debug.Log(" _nextNext.GetComponent<Room>().Initialize()");
                     }
                 }
             } else {
-                if (_nextNext.GetComponent<Room>().Initialized()) {
-                    if (_nextNext.GetComponent<Room>().PlayerInRoom()) {
-                        MoveToNext();
-                        nextDoor.transform.GetComponent<BoxCollider>().enabled = false;
-                        if (_nextCurrent != null) {
-                            if (!_nextCurrent.GetComponent<Room>().Initialized()) {
-                                _nextCurrent.GetComponent<Room>().Initialize();
-                                //Debug.Log(" _nextCurrent.GetComponent<Room>().Initialize();");
+                if (_nextCurrent != null) {
+                    if (_nextCurrent.GetComponent<Room>().Initialized()) {
+                        if (_nextCurrent.GetComponent<Room>().PlayerInRoom()) {
+                            MoveToNext();
+                            nextDoor.transform.GetComponent<BoxCollider>().enabled = false;
+                            if (_nextCurrent != null) {
+                                if (!_nextCurrent.GetComponent<Room>().Initialized()) {
+                                    _nextCurrent.GetComponent<Room>().Initialize();
+                                    //Debug.Log(" _nextCurrent.GetComponent<Room>().Initialize();");
+                                }
+                            } else {
+                                if (!_nextNext.GetComponent<Room>().Initialized()) {
+                                    _nextNext.GetComponent<Room>().Initialize();
+                                    //Debug.Log(" _nextNext.GetComponent<Room>().Initialize()");
+                                }
                             }
                         } else {
-                            if (!_nextNext.GetComponent<Room>().Initialized()) {
-                                _nextNext.GetComponent<Room>().Initialize();
-                                //Debug.Log(" _nextNext.GetComponent<Room>().Initialize()");
-                            }
+                            _nextCurrent.GetComponent<Room>().DeInitialize();
+                            //Debug.Log(" _nextCurrent.GetComponent<Room>().DeInitialize()");
                         }
-                    } else {
-                        _nextNext.GetComponent<Room>().DeInitialize();
-                        //Debug.Log(" _nextNext.GetComponent<Room>().DeInitialize()");
+                    }
+                } else {
+                    if (_nextNext.GetComponent<Room>().Initialized()) {
+                        if (_nextNext.GetComponent<Room>().PlayerInRoom()) {
+                            MoveToNext();
+                            nextDoor.transform.GetComponent<BoxCollider>().enabled = false;
+                            if (_nextCurrent != null) {
+                                if (!_nextCurrent.GetComponent<Room>().Initialized()) {
+                                    _nextCurrent.GetComponent<Room>().Initialize();
+                                    //Debug.Log(" _nextCurrent.GetComponent<Room>().Initialize();");
+                                }
+                            } else {
+                                if (!_nextNext.GetComponent<Room>().Initialized()) {
+                                    _nextNext.GetComponent<Room>().Initialize();
+                                    //Debug.Log(" _nextNext.GetComponent<Room>().Initialize()");
+                                }
+                            }
+                        } else {
+                            _nextNext.GetComponent<Room>().DeInitialize();
+                            //Debug.Log(" _nextNext.GetComponent<Room>().DeInitialize()");
+                        }
                     }
                 }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            _menu.SetActive(!_menu.activeSelf);
-            Time.timeScale = _menu.activeSelf?Time.timeScale = 0:Time.timeScale = 1;
+            if (Input.GetKeyDown(KeyCode.Escape)) {
+                _menu.SetActive(!_menu.activeSelf);
+                Time.timeScale = _menu.activeSelf?Time.timeScale = 0:Time.timeScale = 1;
+            }
         }
     }
 
