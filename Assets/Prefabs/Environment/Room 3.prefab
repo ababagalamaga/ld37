@@ -6850,6 +6850,8 @@ MonoBehaviour:
   PlayerHeadBobRotationPhaseMult: 1
   PlayerHeadBobRotationLerp: 10
   PlayerHeadBobRotationDuration: 0.6
+  MaxCameraAngle: 280
+  MinCameraAngle: 80
   PlayerBlurEnabled: 0
   PlayerBlurAperture: 0
   PlayerBlurDuration: 0.5
