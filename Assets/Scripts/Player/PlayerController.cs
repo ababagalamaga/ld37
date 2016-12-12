@@ -99,8 +99,11 @@ public class PlayerController : MonoBehaviour {
         _cameraController.HeadBobDuration = room.PlayerHeadBobDuration;
         _cameraController.HeadBobError = room.PlayerHeadBobError;
         _cameraController.HeadBobSpeedInfluence = room.PlayerHeadBobSpeedInfluence;
+        _cameraController.HeadBobRotationAmount = room.PlayerHeadBobRotationAmount;
+        _cameraController.HeadBobRotationPhase = room.PlayerHeadBobRotationPhase;
+        _cameraController.HeadBobRotationLerp = room.PlayerHeadBobRotationLerp;
 
-        _blurApertureEnabled = room.PlayerBlurEnabled;
+    _blurApertureEnabled = room.PlayerBlurEnabled;
         if (_blurApertureEnabled) {
             _blur.enabled = _blurApertureEnabled;
         }

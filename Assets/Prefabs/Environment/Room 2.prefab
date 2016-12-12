@@ -2173,7 +2173,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1644769517830582}
-  m_LocalRotation: {x: 0.29883623, y: 0.6408564, z: 0.6408564, w: -0.29883623}
+  m_LocalRotation: {x: 0.29883626, y: 0.64085644, z: 0.64085644, w: -0.29883626}
   m_LocalPosition: {x: 1.9698327, y: 1.0146102, z: 3.7235901}
   m_LocalScale: {x: 0.9038118, y: 0.9038118, z: 0.9038118}
   m_Children: []
@@ -6652,15 +6652,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b302ff5f9406e8b478d5d58a52f47ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraHeight: 1.4
-  PlayerSpeed: 1.5
-  PlayerMaxVelocityChange: 1.5
+  CameraHeight: 1.7
+  PlayerSpeed: 3
+  PlayerMaxVelocityChange: 3
   PlayerJumpAcceleration: 0
-  PlayerHeadBobAmount: 0.15
-  PlayerHeadBobDuration: 1
-  PlayerHeadBobError: 4
-  PlayerHeadBobSpeedInfluence: 0.75
-  PlayerBlurEnabled: 1
+  PlayerHeadBobAmount: 0.05
+  PlayerHeadBobDuration: 0.75
+  PlayerHeadBobError: 1
+  PlayerHeadBobSpeedInfluence: 0.25
+  PlayerHeadBobRotationAmount: 0.02
+  PlayerHeadBobRotationPhase: 3.14
+  PlayerHeadBobRotationLerp: 10
+  PlayerBlurEnabled: 0
   PlayerBlurAperture: 0.6
   PlayerBlurDuration: 1
   PlayerVignetteEnabled: 0

@@ -40,7 +40,7 @@ public class RoomBehavior1 : MonoBehaviour {
 
 	        playerMovement.SpeedMultiplier = _stamina / Stamina;
             playerController.ApplyVignetteSettings(true, Time.deltaTime, (1.0f - (_stamina / Stamina)) * 0.5f);
-            playerController.ApplyContrastSettings(true, Time.deltaTime, (1.0f - (_stamina / Stamina)) * 0.5f);
+            playerController.ApplyContrastSettings(true, Time.deltaTime, (1.0f - (_stamina / Stamina)) * 0.18f);
 
             /*if (ObjectiveSucced) {
                 _room.ObjectiveSucced = true;

@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour {
         var vel = _rigidbody.velocity.magnitude;
         _moving = vel > 0.01f;
 
-        _camera.GetComponent<CameraController>().PlayerSpeed = vel;
+        _camera.GetComponent<CameraController>().SetPlayerSpeed(vel);
     }
 
     public bool Moving() {

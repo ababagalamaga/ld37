@@ -794,6 +794,9 @@ MonoBehaviour:
   PlayerHeadBobDuration: 0.5
   PlayerHeadBobError: 0
   PlayerHeadBobSpeedInfluence: 0.25
+  PlayerHeadBobRotationAmount: 0.02
+  PlayerHeadBobRotationPhase: 3.14
+  PlayerHeadBobRotationLerp: 10
   PlayerBlurEnabled: 0
   PlayerBlurAperture: 0
   PlayerBlurDuration: 0
