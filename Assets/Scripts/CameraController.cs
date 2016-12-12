@@ -91,7 +91,7 @@ public class CameraController : MonoBehaviour
 	
 	// Update is called once per frame
 	void LateUpdate () {
-        _realRotation = Quaternion.Lerp(_playerController.transform.rotation, _realRotation,
+        _realRotation = Quaternion.Lerp(_playerController.GetComponent<MouseLook>().Rotation(), _realRotation,
             Time.deltaTime * LookLerpCoeff);
 	    _realRotation = Quaternion.LookRotation(_realRotation * Vector3.forward);
 

@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public float Speed;
     public float JumpAcceleration;
+    public float JumpCooldown;
     public float MaxVelocityChange;
     public bool Grounded;
     public float SpeedMultiplier;
@@ -15,6 +16,8 @@ public class PlayerMovement : MonoBehaviour {
     private Rigidbody _rigidbody;
     
     private bool _moving;
+    private bool _jumpNeeded;
+    private float _jumpCooldown;
 
     // Use this for initialization
     void Start () {
@@ -25,11 +28,22 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+	    if (_jumpCooldown > 0.0f) {
+	        _jumpCooldown -= Time.deltaTime;
+        }
+	    if (Input.GetButtonDown("Jump") && _jumpCooldown <= 0.0f) {
+	        _jumpNeeded = true;
+	    }
 	}
 
     void FixedUpdate() {
         if (Grounded) {
             var targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+            if (targetVelocity.magnitude > 1.0f) {
+                targetVelocity = targetVelocity.normalized;
+            }
+
             targetVelocity = _camera.transform.TransformDirection(targetVelocity);
             targetVelocity *= Speed * SpeedMultiplier * HeadBobSpeedMultiplier;
             var v = _rigidbody.velocity;
@@ -41,15 +55,17 @@ public class PlayerMovement : MonoBehaviour {
             _rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
         }
 
-        if (Input.GetButtonDown("Jump") && Grounded) {
+        if (_jumpNeeded && Grounded) {
             _rigidbody.AddForce(transform.up * JumpAcceleration / _rigidbody.mass);
+            _jumpCooldown = JumpCooldown;
+            _jumpNeeded = false;
         }
 
         var vel = _rigidbody.velocity.magnitude;
         _moving = vel > 0.01f && Grounded;
 
         Grounded = false;
-        _camera.GetComponent<CameraController>().SetPlayerSpeed(vel);
+        _camera.GetComponent<CameraController>().SetPlayerSpeed(_moving ? vel : 0.0f);
     }
 
     public bool Moving() {
