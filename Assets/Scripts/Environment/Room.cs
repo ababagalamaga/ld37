@@ -25,6 +25,9 @@ public class Room : MonoBehaviour {
     public float PlayerHeadBobForwardLerp;
     public float PlayerHeadBobForwardDuration;
 
+    public AudioClip LeftStep;
+    public AudioClip RightStep;
+
     public float MaxCameraAngle = 280.0f;
     public float MinCameraAngle = 80.0f;
 

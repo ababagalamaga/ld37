@@ -23,6 +23,8 @@ public class CameraController : MonoBehaviour
     public float HeadBobForwardPhaseMult;
     public float HeadBobForwardLerp;
     public float HeadBobForwardDuration;
+    public AudioClip RightStep;
+    public AudioClip LeftStep;
 
     private GameObject _playerController;
     private float _targetHeight;
@@ -35,6 +37,7 @@ public class CameraController : MonoBehaviour
     private float _headBobForwardPassed;
     private float _playerSpeed;
     private Quaternion _realRotation;
+    private AudioSource _audioSource;
 
     // Use this for initialization
     void Start () {
@@ -43,6 +46,7 @@ public class CameraController : MonoBehaviour
         _headBobRotation = Quaternion.identity;
         _headBobForward = Quaternion.identity;
         _realRotation = transform.rotation;
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public void SetPlayerSpeed(float speed) {
@@ -87,6 +91,10 @@ public class CameraController : MonoBehaviour
             passedRotationNorm = Mathf.Pow(passedRotationNorm, HeadBobError > 0.0f ? HeadBobError : 1.0f);
 
             var posDelta = Mathf.Sin(passedNorm * Mathf.PI * 2.0f) * HeadBobAmount;
+            if (posDelta > HeadBobAmount * 0.9999)
+                _audioSource.PlayOneShot(RightStep);
+            if (posDelta < -(HeadBobAmount * 0.9999))
+                _audioSource.PlayOneShot(LeftStep);
             var rotDelta = Mathf.Sin(((passedRotationNorm * Mathf.PI * 2.0f) + HeadBobRotationPhase) * HeadBobRotationPhaseMult) * HeadBobRotationAmount;
 
             _headBobOffset = Vector3.Lerp(_headBobOffset, new Vector3(0, posDelta, 0), Time.deltaTime * HeadBobLerp);
