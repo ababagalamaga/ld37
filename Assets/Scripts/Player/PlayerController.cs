@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     private PlayerMovement _playerMovement;
     private CameraController _cameraController;
     private Room _currentRoom;
+    private MouseLook _mouseLook;
 
     private DepthOfField _blur;
     private VignetteAndChromaticAberration _vignette;
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour {
     void Awake () {
 	    _playerMovement = GetComponent<PlayerMovement>();
         _cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
+        _mouseLook = GetComponent<MouseLook>();
 
         _blur = _cameraController.GetComponent<DepthOfField>();
         _currentBlurAperture = 0.0f;
@@ -127,6 +129,9 @@ public class PlayerController : MonoBehaviour {
         _cameraController.HeadBobRotationPhaseMult = room.PlayerHeadBobRotationPhaseMult;
         _cameraController.HeadBobRotationLerp = room.PlayerHeadBobRotationLerp;
         _cameraController.HeadBobRotationDuration = room.PlayerHeadBobRotationDuration;
+
+        _mouseLook.MaxUp = room.MaxCameraAngle;
+        _mouseLook.MinDown = room.MinCameraAngle;
 
         _blurApertureEnabled = room.PlayerBlurEnabled;
         if (_blurApertureEnabled) {

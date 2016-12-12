@@ -20,6 +20,9 @@ public class Room : MonoBehaviour {
     public float PlayerHeadBobRotationLerp;
     public float PlayerHeadBobRotationDuration;
 
+    public float MaxCameraAngle = 280.0f;
+    public float MinCameraAngle = 80.0f;
+
     public bool PlayerBlurEnabled;
     public float PlayerBlurAperture;
     public float PlayerBlurDuration;
