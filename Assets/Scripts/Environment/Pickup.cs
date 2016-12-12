@@ -8,6 +8,7 @@ public class Pickup : MonoBehaviour {
 
     public bool IsGlasses;
     public bool IsBottle;
+    public bool IsKey;
 
     public string Property;
     public Color Highlight;
@@ -58,6 +59,13 @@ public class Pickup : MonoBehaviour {
                 if (behavior.BottlesLeft() == 0) {
                     currentRoom.ObjectiveSucced = true;
                 }
+            }
+        }
+
+        if (IsKey) {
+            var currentRoom = playerController.CurrentRoom();
+            if (currentRoom != null) {
+                currentRoom.ObjectiveSucced = true;
             }
         }
         Destroy(gameObject);
