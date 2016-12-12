@@ -48,7 +48,7 @@ public class CameraController : MonoBehaviour
     void Update() {
         _currentHeight = Mathf.Lerp(_currentHeight, _targetHeight, Time.deltaTime * 10.0f);
 
-        if (_playerSpeed > HeadBobMinSpeed && HeadBobDuration > 0.0f) {
+        if (_playerSpeed > HeadBobMinSpeed && HeadBobDuration > 0.0f && HeadBobRotationDuration > 0.0f) {
             _headBobPassed += Time.deltaTime;
             if (_headBobPassed > HeadBobDuration) {
                 _headBobPassed -= HeadBobDuration;

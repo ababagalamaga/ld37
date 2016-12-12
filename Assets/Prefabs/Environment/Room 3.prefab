@@ -600,6 +600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4044331499096604}
   - component: {fileID: 65972225649109000}
+  - component: {fileID: 114047781107466410}
   m_Layer: 0
   m_Name: LavaFailTrigger
   m_TagString: Untagged
@@ -1415,6 +1416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4466390613420646}
   - component: {fileID: 65611449226161900}
+  - component: {fileID: 114889098075192338}
   m_Layer: 0
   m_Name: LavaSuccessTrigger
   m_TagString: Untagged
@@ -6781,6 +6783,18 @@ Light:
   m_BounceIntensity: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114047781107466410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1259180620041900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138632b59e49dca45a89ca8e79acc3b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Triggered: 0
 --- !u!114 &114111349467126708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6859,6 +6873,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uvAnimationRate: {x: 0.06, y: 0}
   textureName: _MainTex
+--- !u!114 &114889098075192338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1817394957705142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c35485b0e421ee9418a4d8ab56f9586d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Triggered: 0
 --- !u!135 &135189748874456172
 SphereCollider:
   m_ObjectHideFlags: 1

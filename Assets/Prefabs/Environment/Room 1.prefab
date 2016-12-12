@@ -6744,10 +6744,10 @@ MonoBehaviour:
   PlayerHeadBobError: 4
   PlayerHeadBobSpeedInfluence: 0.85
   PlayerHeadBobRotationAmount: 0.025
-  PlayerHeadBobRotationPhase: 1.67
+  PlayerHeadBobRotationPhase: 0
   PlayerHeadBobRotationPhaseMult: 1
   PlayerHeadBobRotationLerp: 10
-  PlayerHeadBobRotationDuration: 1
+  PlayerHeadBobRotationDuration: 2
   PlayerBlurEnabled: 1
   PlayerBlurAperture: 0.6
   PlayerBlurDuration: 1
