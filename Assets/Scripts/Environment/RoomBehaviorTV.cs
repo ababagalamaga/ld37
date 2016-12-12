@@ -12,16 +12,13 @@ public class RoomBehaviorTV : MonoBehaviour
     private bool _isWatching = true;
     private bool _isDetected = false;
     private Room _room;
-    private GameObject _player;
+    private GameObject _player = null;
     public GameObject _tv;
     public GameObject _tvLight;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
-        print("started");
-        //_tv = GameObject.Find("TV");
-        //_tvLight = GameObject.Find("TVLight");
         _room = GetComponent<Room>();
         _player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -57,8 +54,6 @@ public class RoomBehaviorTV : MonoBehaviour
                 if (hit.collider.gameObject.tag == "Player") {
                     _room.ObjectiveSucced = false;
                     _isDetected = true;
-                    print("detected");
-                    Destroy(this);
                 }
             }
         }
