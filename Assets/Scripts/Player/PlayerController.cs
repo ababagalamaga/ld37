@@ -129,6 +129,11 @@ public class PlayerController : MonoBehaviour {
         _cameraController.HeadBobRotationPhaseMult = room.PlayerHeadBobRotationPhaseMult;
         _cameraController.HeadBobRotationLerp = room.PlayerHeadBobRotationLerp;
         _cameraController.HeadBobRotationDuration = room.PlayerHeadBobRotationDuration;
+        _cameraController.HeadBobForwardAmount = room.PlayerHeadBobForwardAmount;
+        _cameraController.HeadBobForwardPhase = room.PlayerHeadBobForwardPhase;
+        _cameraController.HeadBobForwardPhaseMult = room.PlayerHeadBobForwardPhaseMult;
+        _cameraController.HeadBobForwardLerp = room.PlayerHeadBobForwardLerp;
+        _cameraController.HeadBobForwardDuration = room.PlayerHeadBobForwardDuration;
 
         _mouseLook.MaxUp = room.MaxCameraAngle;
         _mouseLook.MinDown = room.MinCameraAngle;
