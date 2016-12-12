@@ -5,8 +5,13 @@ using UnityStandardAssets.ImageEffects;
 
 public class PlayerController : MonoBehaviour {
 
+    public LayerMask RaycastMask;
+    public float MaxRaycastDist;
+
     private PlayerMovement _playerMovement;
     private CameraController _cameraController;
+    private Room _currentRoom;
+    private MouseLook _mouseLook;
 
     private DepthOfField _blur;
     private VignetteAndChromaticAberration _vignette;
@@ -34,6 +39,7 @@ public class PlayerController : MonoBehaviour {
     void Awake () {
 	    _playerMovement = GetComponent<PlayerMovement>();
         _cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
+        _mouseLook = GetComponent<MouseLook>();
 
         _blur = _cameraController.GetComponent<DepthOfField>();
         _currentBlurAperture = 0.0f;
@@ -87,9 +93,27 @@ public class PlayerController : MonoBehaviour {
             _tonemapping.limitMinimum = _targetTonemappingValue;
             _tonemapping.enabled = _tonemappingEnabled;
 	    }
-	}
+
+        RaycastHit hit;
+        Ray ray = _cameraController.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit, MaxRaycastDist, RaycastMask)) {
+            Transform objectHit = hit.transform;
+            if (objectHit.gameObject.GetComponent<Pickup>() != null) {
+                var pickup = objectHit.gameObject.GetComponent<Pickup>();
+                pickup.Selected = true;
+                if (Input.GetButtonDown("Fire1")) {
+                    pickup.Pick(this);
+                }
+            }
+
+            // Do something with the object that was hit by the raycast.
+        }
+    }
 
     public void ApplySettings(Room room) {
+        _currentRoom = room;
+
         _playerMovement.Speed = room.PlayerSpeed;
         _playerMovement.MaxVelocityChange = room.PlayerMaxVelocityChange;
         _playerMovement.JumpAcceleration = room.PlayerJumpAcceleration;
@@ -105,6 +129,9 @@ public class PlayerController : MonoBehaviour {
         _cameraController.HeadBobRotationPhaseMult = room.PlayerHeadBobRotationPhaseMult;
         _cameraController.HeadBobRotationLerp = room.PlayerHeadBobRotationLerp;
         _cameraController.HeadBobRotationDuration = room.PlayerHeadBobRotationDuration;
+
+        _mouseLook.MaxUp = room.MaxCameraAngle;
+        _mouseLook.MinDown = room.MinCameraAngle;
 
         _blurApertureEnabled = room.PlayerBlurEnabled;
         if (_blurApertureEnabled) {
@@ -134,6 +161,17 @@ public class PlayerController : MonoBehaviour {
         _tonemappingPassed = 0.0f;
     }
 
+    public void ApplyBlurSettings(bool enabled, float duration, float value) {
+        _blurApertureEnabled = enabled;
+        if (_blurApertureEnabled) {
+            _blur.enabled = _blurApertureEnabled;
+        }
+        _blurApertureDuration = duration;
+        _currentBlurAperture = _blur.aperture;
+        _targetBlurAperture = value;
+        _blurAperturePassed = 0.0f;
+    }
+
     public void ApplyVignetteSettings(bool enabled, float duration, float value) {
         _vignetteEnabled = enabled;
         if (_vignetteEnabled) {
@@ -145,8 +183,7 @@ public class PlayerController : MonoBehaviour {
         _vignettePassed = 0.0f;
     }
 
-    public void ApplyContrastSettings(bool enabled, float duration, float value)
-    {
+    public void ApplyContrastSettings(bool enabled, float duration, float value) {
         _tonemappingEnabled = enabled;
         if (_tonemappingEnabled) {
             _tonemapping.enabled = _tonemappingEnabled;
@@ -155,5 +192,9 @@ public class PlayerController : MonoBehaviour {
         _currentTonemappingValue = _tonemapping.limitMinimum;
         _targetTonemappingValue = value;
         _tonemappingPassed = 0.0f;
+    }
+
+    public Room CurrentRoom() {
+        return _currentRoom;
     }
 }

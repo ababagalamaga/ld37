@@ -36,10 +36,18 @@ public class GameController : MonoBehaviour {
         _playerController.GetComponent<PlayerController>().ApplySettings(_current.GetComponent<Room>());
         _current.GetComponent<Room>().Initialize();
         SpawnNext();
+
+        Cursor.lockState = CursorLockMode.Locked;
+        _playerController.GetComponent<MouseLook>().RotationEnabled(true);
     }
 
     // Update is called once per frame
     void Update() {
+        if (Input.GetKeyDown("escape")) {
+            Cursor.lockState = CursorLockMode.None;
+            _playerController.GetComponent<MouseLook>().RotationEnabled(false);
+        }
+
         if (_current.GetComponent<Room>().ObjectiveSucced) {
             _nextUnlocked = true;
             _current.GetComponent<Room>().ObjectiveSucced = false;
@@ -121,11 +129,15 @@ public class GameController : MonoBehaviour {
     public void Continue() {
         Time.timeScale = 1;
         _menu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        _playerController.GetComponent<MouseLook>().RotationEnabled(true);
     }
 
     public void RestartGame() {
         SceneManager.LoadScene(0);
+        Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
+        _playerController.GetComponent<MouseLook>().RotationEnabled(true);
     }
 
     public void Quit() {

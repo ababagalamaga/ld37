@@ -18,6 +18,8 @@ public class RoomBehavior2 : MonoBehaviour {
 	    if (_room.PlayerInRoom()) {
             var playerMovement = _player.GetComponent<PlayerMovement>();
 	        playerMovement.SpeedMultiplier = 1.0f;
+            _player.GetComponent<PlayerController>().ApplyVignetteSettings(false, 0.1f, 0.0f);
+            _player.GetComponent<PlayerController>().ApplyContrastSettings(false, 0.1f, 0.0f);
 
             /*if (ObjectiveSucced) {
                 _room.ObjectiveSucced = true;

@@ -46,17 +46,22 @@ public class Door : MonoBehaviour
 	}
 
     void OnTriggerEnter(Collider other) {
-        _canBeClosed = false;
+        if (other.transform.tag == "Player") {
+            _canBeClosed = false;
 
-        if (_state == State.CLOSED || _state == State.CLOSING) {
-            if (_coroutine != null)
-                StopCoroutine(_coroutine);
-            _coroutine = StartCoroutine(Open());
+            if (_state == State.CLOSED || _state == State.CLOSING)
+            {
+                if (_coroutine != null)
+                    StopCoroutine(_coroutine);
+                _coroutine = StartCoroutine(Open());
+            }
         }
     }
 
     void OnTriggerExit(Collider other) {
-        _canBeClosed = true;
+        if (other.transform.tag == "Player") {
+            _canBeClosed = true;
+        }
     }
 
     IEnumerator Open() {
