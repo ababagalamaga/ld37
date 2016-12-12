@@ -278,7 +278,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LookLerpCoeff: 10
   MoveLerpCoeff: 10
-  Height: 1.6
   HeadBobAmount: 0.025
   HeadBobDuration: 1
   HeadBobLerp: 10
@@ -530,7 +529,7 @@ Prefab:
     - target: {fileID: 224920018998867498, guid: 487eb775acdcc584fba048cbd55fe51d,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224920018998867498, guid: 487eb775acdcc584fba048cbd55fe51d,
         type: 2}
@@ -741,7 +740,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2135414540
 Rigidbody:
@@ -775,7 +774,7 @@ CapsuleCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2135414538}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 821dfced57b81644a967f916dd3bf23b, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -806,7 +805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 4
-  JumpAcceleration: 200
+  JumpAcceleration: 150
   MaxVelocityChange: 5
   Grounded: 0
   SpeedMultiplier: 1

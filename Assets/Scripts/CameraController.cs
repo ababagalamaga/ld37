@@ -6,7 +6,6 @@ public class CameraController : MonoBehaviour
 {
     public float LookLerpCoeff;
     public float MoveLerpCoeff;
-    public float Height;
 
     public float HeadBobAmount;
     public float HeadBobDuration;
@@ -21,7 +20,8 @@ public class CameraController : MonoBehaviour
     public float HeadBobRotationLerp;
 
     private GameObject _playerController;
-    private Vector3 _offset;
+    private float _targetHeight;
+    private float _currentHeight;
     private Vector3 _headBobOffset;
     private Quaternion _headBobRotation;
     private float _headBobPassed;
@@ -32,7 +32,6 @@ public class CameraController : MonoBehaviour
     // Use this for initialization
     void Start () {
 	    _playerController = GameObject.FindGameObjectWithTag("Player");
-        _offset = new Vector3(0, Height, 0);
         _headBobOffset = new Vector3(0, 0, 0);
         _headBobRotation = Quaternion.identity;
         _realRotation = transform.rotation;
@@ -42,7 +41,13 @@ public class CameraController : MonoBehaviour
         _playerSpeed = speed;
     }
 
+    public void SetHeight(float height) {
+        _targetHeight = height;
+    }
+
     void Update() {
+        _currentHeight = Mathf.Lerp(_currentHeight, _targetHeight, Time.deltaTime * 10.0f);
+
         if (_playerSpeed > HeadBobMinSpeed && HeadBobDuration > 0.0f) {
             _headBobPassed += Time.deltaTime;
             if (_headBobPassed > HeadBobDuration) {
@@ -92,6 +97,6 @@ public class CameraController : MonoBehaviour
 
         transform.rotation =  _realRotation * _headBobRotation;
 
-        transform.position = Vector3.Lerp(_playerController.transform.position + _offset + _headBobOffset, transform.position, Time.deltaTime * MoveLerpCoeff);
+        transform.position = Vector3.Lerp(_playerController.transform.position + Vector3.up * _currentHeight + _headBobOffset, transform.position, Time.deltaTime * MoveLerpCoeff);
 	}
 }

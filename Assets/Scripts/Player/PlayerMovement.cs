@@ -45,11 +45,10 @@ public class PlayerMovement : MonoBehaviour {
             _rigidbody.AddForce(transform.up * JumpAcceleration / _rigidbody.mass);
         }
 
-        Grounded = false;
-
         var vel = _rigidbody.velocity.magnitude;
-        _moving = vel > 0.01f;
+        _moving = vel > 0.01f && Grounded;
 
+        Grounded = false;
         _camera.GetComponent<CameraController>().SetPlayerSpeed(vel);
     }
 

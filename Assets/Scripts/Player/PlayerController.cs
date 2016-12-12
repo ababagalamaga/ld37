@@ -94,8 +94,9 @@ public class PlayerController : MonoBehaviour {
         _playerMovement.MaxVelocityChange = room.PlayerMaxVelocityChange;
         _playerMovement.JumpAcceleration = room.PlayerJumpAcceleration;
 
-        _cameraController.Height = room.CameraHeight;
+        _cameraController.SetHeight(room.CameraHeight);
         _cameraController.HeadBobAmount = room.PlayerHeadBobAmount;
+        _cameraController.HeadBobMinSpeed = room.PlayerHeadBobMinSpeed;
         _cameraController.HeadBobDuration = room.PlayerHeadBobDuration;
         _cameraController.HeadBobError = room.PlayerHeadBobError;
         _cameraController.HeadBobSpeedInfluence = room.PlayerHeadBobSpeedInfluence;
