@@ -1705,7 +1705,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1664071643342408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9988556, y: 0, z: 21.664982}
+  m_LocalPosition: {x: -28.821156, y: 0, z: 22.936193}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4049442672638142}
@@ -2202,7 +2202,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1329195494003064}
-  m_LocalRotation: {x: 0.29883626, y: 0.64085644, z: 0.64085644, w: -0.29883626}
+  m_LocalRotation: {x: 0.29883623, y: 0.6408564, z: 0.6408564, w: -0.29883623}
   m_LocalPosition: {x: 1.9698327, y: 1.0146102, z: 3.7235901}
   m_LocalScale: {x: 0.9038118, y: 0.9038118, z: 0.9038118}
   m_Children: []
@@ -2410,13 +2410,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1073301696905858}
-  m_LocalRotation: {x: 0.7972778, y: -0.000000094063566, z: 0.6036126, w: -0.0000000027939675}
-  m_LocalPosition: {x: -0.5670019, y: 0.13293314, z: 2.4930239}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.563, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4954888059664646}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 180, y: -74.257996, z: -0.000015258789}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4675853033583040
 Transform:
   m_ObjectHideFlags: 1
@@ -6197,7 +6197,7 @@ Light:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1073301696905858}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 7
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6259,7 +6259,7 @@ MonoBehaviour:
   PlayerTonemappingEnabled: 0
   PlayerTonemappingValue: 0
   PlayerTonemappingDuration: 0
-  ObjectiveSucced: 0
+  ObjectiveSucced: 1
 --- !u!114 &114795235452381874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6287,6 +6287,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectiveSucced: 1
   Period: 2
+  _tv: {fileID: 1571407667091262}
+  _tvLight: {fileID: 1073301696905858}
 --- !u!215 &215609004867817884
 ReflectionProbe:
   m_ObjectHideFlags: 1
