@@ -7178,6 +7178,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bottles: 2
+  Stamina: 1
+  StaminaDecSpeed: 0.2
+  StaminaIncSpeed: 0.4
 --- !u!114 &114813306132953732
 MonoBehaviour:
   m_ObjectHideFlags: 1
