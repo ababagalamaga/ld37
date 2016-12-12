@@ -11,6 +11,7 @@ public class MouseLook : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	    _transform = new GameObject().transform;
+	    _transform.rotation = transform.rotation;
 	}
 	
 	// Update is called once per frame
