@@ -24,8 +24,11 @@ public class RoomBehaviorLava : MonoBehaviour {
 
 	        for (int i = 0; i < StoneObjects.Count; i++) {
 	            if (RealObjects.Count - 1 <= i) {
-	                Instantiate(RealObjects[i], transform);
-	                Destroy(StoneObjects[i]);
+	                var realObject = Instantiate(RealObjects[i], transform);
+	                realObject.transform.position = StoneObjects[i].transform.position;
+	                realObject.transform.rotation = StoneObjects[i].transform.rotation;
+
+                    Destroy(StoneObjects[i]);
                 }
 	        }
 
