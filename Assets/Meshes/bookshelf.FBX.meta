@@ -288,6 +288,7 @@ ModelImporter:
     2300180: window002
     2300182: window003
     2300184: window1
+    2300186: //RootNode
     3300000: bag
     3300002: bottle1
     3300004: bottle2
@@ -381,6 +382,7 @@ ModelImporter:
     3300180: window002
     3300182: window003
     3300184: window1
+    3300186: //RootNode
     4300000: sofa
     4300002: sofa_collision
     4300004: table
@@ -474,6 +476,7 @@ ModelImporter:
     4300180: medicine4
     4300182: pistol
     4300184: shelf
+    4300186: book_shelf
   materials:
     importMaterials: 1
     materialName: 0
@@ -498,7 +501,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 4
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
