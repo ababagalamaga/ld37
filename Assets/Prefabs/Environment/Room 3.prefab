@@ -6734,20 +6734,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b302ff5f9406e8b478d5d58a52f47ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraHeight: 0.8
+  CameraHeight: 0.4
   PlayerSpeed: 3
   PlayerMaxVelocityChange: 2
   PlayerJumpAcceleration: 220
   PlayerHeadBobAmount: 0.05
   PlayerHeadBobMinSpeed: 0.5
-  PlayerHeadBobDuration: 0.25
+  PlayerHeadBobDuration: 0.3
   PlayerHeadBobError: 1
   PlayerHeadBobSpeedInfluence: 0.25
   PlayerHeadBobRotationAmount: 0.025
   PlayerHeadBobRotationPhase: 1
   PlayerHeadBobRotationPhaseMult: 1
   PlayerHeadBobRotationLerp: 10
-  PlayerHeadBobRotationDuration: 0.5
+  PlayerHeadBobRotationDuration: 0.6
   PlayerBlurEnabled: 0
   PlayerBlurAperture: 0.6
   PlayerBlurDuration: 1
