@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour {
     private bool _moving;
     private bool _jumpNeeded;
     private float _jumpCooldown;
+    private Vector3 _prevPosition;
 
     // Use this for initialization
     void Start () {
@@ -37,6 +38,9 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
     void FixedUpdate() {
+        if (Vector3.Distance(transform.position, _prevPosition) < 0.001f)
+            Grounded = true;
+
         if (Grounded) {
             var targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
@@ -66,6 +70,7 @@ public class PlayerMovement : MonoBehaviour {
 
         Grounded = false;
         _camera.GetComponent<CameraController>().SetPlayerSpeed(_moving ? vel : 0.0f);
+        _prevPosition = transform.position;
     }
 
     public bool Moving() {

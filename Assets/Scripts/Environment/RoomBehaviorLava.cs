@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomBehaviorLava : MonoBehaviour
-{
-    public bool ObjectiveSucced = false;
+public class RoomBehaviorLava : MonoBehaviour {
+
+    public GameObject LavaFailTrigger;
+    public GameObject LavaSuccessTrigger;
+    public GameObject LavaObject;
+    public List<GameObject> StoneObjects;  
+    public List<GameObject> RealObjects;
 
     private Room _room;
 
@@ -15,9 +19,23 @@ public class RoomBehaviorLava : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-	    if (ObjectiveSucced) {
-	        _room.ObjectiveSucced = true;
+	    if (LavaFailTrigger.GetComponent<LavaFailNotifier>().Triggered) {
+	        _room.ObjectiveSucced = false;
+
+	        for (int i = 0; i < StoneObjects.Count; i++) {
+	            if (RealObjects.Count - 1 <= i) {
+	                Instantiate(RealObjects[i], transform);
+	                Destroy(StoneObjects[i]);
+                }
+	        }
+
+            Destroy(LavaObject);
+            Destroy(LavaSuccessTrigger);
+	        LavaSuccessTrigger = null;
+
             Destroy(this);
-	    }
-	}
+	    } else if (LavaSuccessTrigger != null && LavaSuccessTrigger.GetComponent<LavaSuccessNotifier>().Triggered) {
+	        _room.ObjectiveSucced = true;
+        }
+    }
 }
