@@ -38,7 +38,11 @@ public class Pickup : MonoBehaviour {
 
     public void Pick(PlayerController playerController) {
         if (IsGlasses) {
-           playerController.ApplyBlurSettings(false, 0.1f, 0.0f);
+            playerController.ApplyBlurSettings(false, 0.1f, 0.0f);
+            var currentRoom = playerController.CurrentRoom();
+            if (currentRoom != null) {
+                currentRoom.ObjectiveSucced = true;
+            }
         }
         Destroy(gameObject);
     }

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 
     private PlayerMovement _playerMovement;
     private CameraController _cameraController;
+    private Room _currentRoom;
 
     private DepthOfField _blur;
     private VignetteAndChromaticAberration _vignette;
@@ -109,6 +110,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void ApplySettings(Room room) {
+        _currentRoom = room;
+
         _playerMovement.Speed = room.PlayerSpeed;
         _playerMovement.MaxVelocityChange = room.PlayerMaxVelocityChange;
         _playerMovement.JumpAcceleration = room.PlayerJumpAcceleration;
@@ -184,5 +187,9 @@ public class PlayerController : MonoBehaviour {
         _currentTonemappingValue = _tonemapping.limitMinimum;
         _targetTonemappingValue = value;
         _tonemappingPassed = 0.0f;
+    }
+
+    public Room CurrentRoom() {
+        return _currentRoom;
     }
 }

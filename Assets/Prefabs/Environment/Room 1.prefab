@@ -7170,7 +7170,7 @@ MonoBehaviour:
   PlayerTonemappingEnabled: 0
   PlayerTonemappingValue: 0
   PlayerTonemappingDuration: 0
-  ObjectiveSucced: 1
+  ObjectiveSucced: 0
 --- !u!114 &114684500502548954
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7185,7 +7185,7 @@ MonoBehaviour:
   Stamina: 1
   StaminaDecSpeed: 0.05
   StaminaIncSpeed: 0.25
-  ObjectiveSucced: 1
+  ObjectiveSucced: 0
 --- !u!114 &114866403260957076
 MonoBehaviour:
   m_ObjectHideFlags: 1
