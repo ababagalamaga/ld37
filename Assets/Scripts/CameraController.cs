@@ -97,9 +97,9 @@ public class CameraController : MonoBehaviour
             passedRotationNorm = Mathf.Pow(passedRotationNorm, HeadBobError > 0.0f ? HeadBobError : 1.0f);
 
             var posDelta = Mathf.Sin(passedNorm * Mathf.PI * 2.0f) * HeadBobAmount;
-            if (posDelta > HeadBobAmount * 0.9999)
+            if (posDelta > 0.999 * HeadBobAmount)
                 _audioSource.PlayOneShot(RightStep);
-            if (posDelta < -(HeadBobAmount * 0.9999))
+            if (posDelta < -0.999 * HeadBobAmount)
                 _audioSource.PlayOneShot(LeftStep);
             var rotDelta = Mathf.Sin(((passedRotationNorm * Mathf.PI * 2.0f) + HeadBobRotationPhase) * HeadBobRotationPhaseMult) * HeadBobRotationAmount;
 

@@ -7167,6 +7167,8 @@ MonoBehaviour:
   PlayerHeadBobForwardPhaseMult: 0
   PlayerHeadBobForwardLerp: 0
   PlayerHeadBobForwardDuration: 0
+  LeftStep: {fileID: 8300000, guid: 29b2a1970a7ce8c44b4020cb73fc4158, type: 3}
+  RightStep: {fileID: 8300000, guid: 2910863e51fb72549b97917065876143, type: 3}
   MaxCameraAngle: 330
   MinCameraAngle: 80
   PlayerBlurEnabled: 1
