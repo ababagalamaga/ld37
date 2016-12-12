@@ -39,6 +39,7 @@ public class CameraController : MonoBehaviour
     private float _playerSpeed;
     private Quaternion _realRotation;
     private AudioSource _audioSource;
+    private float step = 1;
 
     // Use this for initialization
     void Start () {
@@ -97,10 +98,14 @@ public class CameraController : MonoBehaviour
             passedRotationNorm = Mathf.Pow(passedRotationNorm, HeadBobError > 0.0f ? HeadBobError : 1.0f);
 
             var posDelta = Mathf.Sin(passedNorm * Mathf.PI * 2.0f) * HeadBobAmount;
-            if (posDelta > 0.999 * HeadBobAmount)
+            if (posDelta > 0.7 * HeadBobAmount && step > 0) {
+                step = -1;
                 _audioSource.PlayOneShot(RightStep);
-            if (posDelta < -0.999 * HeadBobAmount)
+            }
+            if (posDelta < -0.7 * HeadBobAmount && step < 0) {
+                step = 1;
                 _audioSource.PlayOneShot(LeftStep);
+            }
             var rotDelta = Mathf.Sin(((passedRotationNorm * Mathf.PI * 2.0f) + HeadBobRotationPhase) * HeadBobRotationPhaseMult) * HeadBobRotationAmount;
 
             if (_playerSpeed <= HeadBobMinSpeed) {
