@@ -18,7 +18,6 @@ public class RoomBehaviorLava : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	    if (LavaTrigger.GetComponent<LavaTriggeredNotifier>().Triggered) {
-            Debug.Log("HERE");
 	        _room.ObjectiveSucced = false;
 
 	        for (int i = 0; i < StoneObjects.Count; i++) {
