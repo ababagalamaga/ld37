@@ -87,7 +87,6 @@ public class PlayerController : MonoBehaviour {
             _tonemapping.limitMinimum = _targetTonemappingValue;
             _tonemapping.enabled = _tonemappingEnabled;
 	    }
-        Debug.Log(_tonemapping.limitMinimum);
 	}
 
     public void ApplySettings(Room room) {
