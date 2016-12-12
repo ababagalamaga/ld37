@@ -15,7 +15,9 @@ public class Room : MonoBehaviour {
     public float PlayerHeadBobSpeedInfluence;
     public float PlayerHeadBobRotationAmount;
     public float PlayerHeadBobRotationPhase;
+    public float PlayerHeadBobRotationPhaseMult;
     public float PlayerHeadBobRotationLerp;
+    public float PlayerHeadBobRotationDuration;
 
     public bool PlayerBlurEnabled;
     public float PlayerBlurAperture;

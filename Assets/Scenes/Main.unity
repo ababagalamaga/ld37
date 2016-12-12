@@ -285,8 +285,10 @@ MonoBehaviour:
   HeadBobMinSpeed: 0.1
   HeadBobError: 0
   HeadBobSpeedInfluence: 0.75
+  HeadBobRotationDuration: 0
   HeadBobRotationAmount: 0
   HeadBobRotationPhase: 0
+  HeadBobRotationPhaseMult: 0
   HeadBobRotationLerp: 0
 --- !u!81 &962102463
 AudioListener:
@@ -687,7 +689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rooms:
   - {fileID: 1187078314850500, guid: e5ed1a53013bf8d4faeb55c6a62249f2, type: 2}
-  - {fileID: 1248798386186868, guid: faf5af0f4bd50ae4891937118a9a4be9, type: 2}
+  - {fileID: 1605708148669602, guid: 19fb17de8f0b9c7408424f30bc378822, type: 2}
   - {fileID: 1248798386186868, guid: 8d3d5a273f6dc0245924f7884dc31637, type: 2}
   - {fileID: 1248798386186868, guid: 8d3d5a273f6dc0245924f7884dc31637, type: 2}
   - {fileID: 0}
