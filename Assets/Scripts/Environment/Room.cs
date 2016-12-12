@@ -10,12 +10,27 @@ public class Room : MonoBehaviour {
     public float PlayerMaxVelocityChange;
     public float PlayerJumpAcceleration;
     public float PlayerHeadBobAmount;
+    public float PlayerHeadBobMinSpeed;
     public float PlayerHeadBobDuration;
     public float PlayerHeadBobError;
+    public float PlayerHeadBobSpeedInfluence;
+    public float PlayerHeadBobRotationAmount;
+    public float PlayerHeadBobRotationPhase;
+    public float PlayerHeadBobRotationPhaseMult;
+    public float PlayerHeadBobRotationLerp;
+    public float PlayerHeadBobRotationDuration;
 
     public bool PlayerBlurEnabled;
     public float PlayerBlurAperture;
     public float PlayerBlurDuration;
+
+    public bool PlayerVignetteEnabled;
+    public float PlayerVignetteValue;
+    public float PlayerVignetteDuration;
+
+    public bool PlayerTonemappingEnabled;
+    public float PlayerTonemappingValue;
+    public float PlayerTonemappingDuration;
 
     public bool ObjectiveSucced;
 
@@ -27,7 +42,6 @@ public class Room : MonoBehaviour {
     void Awake () {
         _initialized = false;
         _playerInRoom = false;
-        ObjectiveSucced = false;
 
         DeInitialize();
 	}

@@ -9,13 +9,27 @@ public class PlayerController : MonoBehaviour {
     private CameraController _cameraController;
 
     private DepthOfField _blur;
-    private GameObject _bloom;
+    private VignetteAndChromaticAberration _vignette;
+    private ContrastStretch _tonemapping;
 
     private float _currentBlurAperture;
     private float _targetBlurAperture;
     private float _blurApertureDuration;
     private float _blurAperturePassed;
     private bool _blurApertureEnabled;
+
+    private bool _vignetteEnabled;
+    private float _currentVignetteValue;
+    private float _targetVignetteValue;
+    private float _vignetteDuration;
+    private float _vignettePassed;
+
+    private bool _tonemappingEnabled;
+    private float _currentTonemappingValue;
+    private float _targetTonemappingValue;
+    private float _tonemappingDuration;
+    private float _tonemappingPassed;
+
     // Use this for initialization
     void Awake () {
 	    _playerMovement = GetComponent<PlayerMovement>();
@@ -27,6 +41,22 @@ public class PlayerController : MonoBehaviour {
         _blurApertureDuration = 0.0f;
         _blurAperturePassed = 0.0f;
         _blurApertureEnabled = false;
+
+        _vignette = _cameraController.GetComponent<VignetteAndChromaticAberration>();
+
+        _vignetteEnabled = false;
+        _currentVignetteValue = 0.0f;
+        _targetVignetteValue = 0.0f;
+        _vignetteDuration = 0.0f;
+        _vignettePassed = 0.0f;
+
+        _tonemapping = _cameraController.GetComponent<ContrastStretch>();
+
+        _tonemappingEnabled = false;
+        _currentTonemappingValue = 0.0f;
+        _targetTonemappingValue = 0.0f;
+        _tonemappingDuration = 0.0f;
+        _tonemappingPassed = 0.0f;
     }
 	
 	// Update is called once per frame
@@ -34,10 +64,28 @@ public class PlayerController : MonoBehaviour {
 	    if (_blurAperturePassed < _blurApertureDuration && _blurApertureDuration > 0.0f) {
 	        _blurAperturePassed += Time.deltaTime;
 	        var passedNorm = _blurAperturePassed / _blurApertureDuration;
-	        _blur.aperture = _currentBlurAperture * (1 - passedNorm) + _targetBlurAperture * passedNorm;
+	        _blur.aperture = Mathf.Clamp((_currentBlurAperture * (1 - passedNorm) + _targetBlurAperture * passedNorm), Mathf.Min(_currentBlurAperture, _targetBlurAperture), Mathf.Max(_currentBlurAperture, _targetBlurAperture));
 	    } else {
 	        _blur.aperture = _targetBlurAperture;
             _blur.enabled = _blurApertureEnabled;
+	    }
+
+        if (_vignettePassed < _vignetteDuration && _vignetteDuration > 0.0f) {
+            _vignettePassed += Time.deltaTime;
+	        var passedNorm = _vignettePassed / _vignetteDuration;
+	        _vignette.intensity = Mathf.Clamp((_currentVignetteValue * (1 - passedNorm) + _targetVignetteValue * passedNorm), Mathf.Min(_currentVignetteValue, _targetVignetteValue), Mathf.Max(_currentVignetteValue, _targetVignetteValue));
+	    } else {
+	        _vignette.intensity = _targetVignetteValue;
+            _vignette.enabled = _vignetteEnabled;
+	    }
+
+        if (_tonemappingPassed < _tonemappingDuration && _tonemappingDuration > 0.0f) {
+            _tonemappingPassed += Time.deltaTime;
+	        var passedNorm = _tonemappingPassed / _tonemappingDuration;
+            _tonemapping.limitMinimum = Mathf.Clamp(_currentTonemappingValue * (1 - passedNorm) + _targetTonemappingValue * passedNorm, Mathf.Min(_currentTonemappingValue, _targetTonemappingValue), Mathf.Max(_currentTonemappingValue, _targetTonemappingValue));
+	    } else {
+            _tonemapping.limitMinimum = _targetTonemappingValue;
+            _tonemapping.enabled = _tonemappingEnabled;
 	    }
 	}
 
@@ -46,10 +94,17 @@ public class PlayerController : MonoBehaviour {
         _playerMovement.MaxVelocityChange = room.PlayerMaxVelocityChange;
         _playerMovement.JumpAcceleration = room.PlayerJumpAcceleration;
 
-        _cameraController.Height = room.CameraHeight;
+        _cameraController.SetHeight(room.CameraHeight);
         _cameraController.HeadBobAmount = room.PlayerHeadBobAmount;
+        _cameraController.HeadBobMinSpeed = room.PlayerHeadBobMinSpeed;
         _cameraController.HeadBobDuration = room.PlayerHeadBobDuration;
         _cameraController.HeadBobError = room.PlayerHeadBobError;
+        _cameraController.HeadBobSpeedInfluence = room.PlayerHeadBobSpeedInfluence;
+        _cameraController.HeadBobRotationAmount = room.PlayerHeadBobRotationAmount;
+        _cameraController.HeadBobRotationPhase = room.PlayerHeadBobRotationPhase;
+        _cameraController.HeadBobRotationPhaseMult = room.PlayerHeadBobRotationPhaseMult;
+        _cameraController.HeadBobRotationLerp = room.PlayerHeadBobRotationLerp;
+        _cameraController.HeadBobRotationDuration = room.PlayerHeadBobRotationDuration;
 
         _blurApertureEnabled = room.PlayerBlurEnabled;
         if (_blurApertureEnabled) {
@@ -59,5 +114,46 @@ public class PlayerController : MonoBehaviour {
         _currentBlurAperture = _blur.aperture;
         _targetBlurAperture = room.PlayerBlurAperture;
         _blurAperturePassed = 0.0f;
+
+        _vignetteEnabled = room.PlayerVignetteEnabled;
+        if (_vignetteEnabled) {
+            _vignette.enabled = _vignetteEnabled;
+        }
+        _vignetteDuration = room.PlayerVignetteDuration;
+        _currentVignetteValue = _vignette.intensity;
+        _targetVignetteValue = room.PlayerVignetteValue;
+        _vignettePassed = 0.0f;
+
+        _tonemappingEnabled = room.PlayerVignetteEnabled;
+        if (_tonemappingEnabled) {
+            _tonemapping.enabled = _tonemappingEnabled;
+        }
+        _tonemappingDuration = room.PlayerTonemappingDuration;
+        _currentTonemappingValue = _tonemapping.limitMinimum;
+        _targetTonemappingValue = room.PlayerTonemappingValue;
+        _tonemappingPassed = 0.0f;
+    }
+
+    public void ApplyVignetteSettings(bool enabled, float duration, float value) {
+        _vignetteEnabled = enabled;
+        if (_vignetteEnabled) {
+            _vignette.enabled = _vignetteEnabled;
+        }
+        _vignetteDuration = duration;
+        _currentVignetteValue = _vignette.intensity;
+        _targetVignetteValue = value;
+        _vignettePassed = 0.0f;
+    }
+
+    public void ApplyContrastSettings(bool enabled, float duration, float value)
+    {
+        _tonemappingEnabled = enabled;
+        if (_tonemappingEnabled) {
+            _tonemapping.enabled = _tonemappingEnabled;
+        }
+        _tonemappingDuration = duration;
+        _currentTonemappingValue = _tonemapping.limitMinimum;
+        _targetTonemappingValue = value;
+        _tonemappingPassed = 0.0f;
     }
 }
