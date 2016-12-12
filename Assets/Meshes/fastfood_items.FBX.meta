@@ -1,67 +1,67 @@
 fileFormatVersion: 2
-guid: 177e9c85290a7404abed4527c48bcc8a
-timeCreated: 1481493630
+guid: f4f7d658c141c014ea5cd396f060b9da
+timeCreated: 1481532347
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: bottle1
-    100002: bottle2
-    100004: bottle3
-    100006: bottle4
-    100008: bottle5
-    100010: glass1
-    100012: glass2
-    100014: glass3
-    100016: glass4
-    100018: //RootNode
-    100020: oranges
-    100022: plate_empty
-    400000: bottle1
-    400002: bottle2
-    400004: bottle3
-    400006: bottle4
-    400008: bottle5
-    400010: glass1
-    400012: glass2
-    400014: glass3
-    400016: glass4
-    400018: //RootNode
-    400020: oranges
-    400022: plate_empty
-    2300000: bottle1
-    2300002: bottle2
-    2300004: bottle3
-    2300006: bottle4
-    2300008: bottle5
-    2300010: glass1
-    2300012: glass2
-    2300014: glass3
-    2300016: glass4
-    2300018: oranges
-    2300020: plate_empty
-    3300000: bottle1
-    3300002: bottle2
-    3300004: bottle3
-    3300006: bottle4
-    3300008: bottle5
-    3300010: glass1
-    3300012: glass2
-    3300014: glass3
-    3300016: glass4
-    3300018: oranges
-    3300020: plate_empty
-    4300000: bottle1
-    4300002: bottle2
-    4300004: bottle3
-    4300006: bottle4
-    4300008: bottle5
-    4300010: glass1
-    4300012: glass2
-    4300014: glass3
-    4300016: glass4
-    4300018: oranges
-    4300020: plate_empty
+    100000: cardboard_china_1
+    100002: cardboard_china_2
+    100004: cardboard_pizza_1
+    100006: cardboard_pizza_2
+    100008: cardboard_pizza_3
+    100010: //RootNode
+    100012: plastic_cup_003
+    100014: plastic_cup_1
+    100016: plastic_cup_2
+    100018: plastic_cup_cap
+    100020: plastic_cups
+    100022: trash_1
+    400000: cardboard_china_1
+    400002: cardboard_china_2
+    400004: cardboard_pizza_1
+    400006: cardboard_pizza_2
+    400008: cardboard_pizza_3
+    400010: //RootNode
+    400012: plastic_cup_003
+    400014: plastic_cup_1
+    400016: plastic_cup_2
+    400018: plastic_cup_cap
+    400020: plastic_cups
+    400022: trash_1
+    2300000: cardboard_china_1
+    2300002: cardboard_china_2
+    2300004: cardboard_pizza_1
+    2300006: cardboard_pizza_2
+    2300008: cardboard_pizza_3
+    2300010: plastic_cup_003
+    2300012: plastic_cup_1
+    2300014: plastic_cup_2
+    2300016: plastic_cup_cap
+    2300018: plastic_cups
+    2300020: trash_1
+    3300000: cardboard_china_1
+    3300002: cardboard_china_2
+    3300004: cardboard_pizza_1
+    3300006: cardboard_pizza_2
+    3300008: cardboard_pizza_3
+    3300010: plastic_cup_003
+    3300012: plastic_cup_1
+    3300014: plastic_cup_2
+    3300016: plastic_cup_cap
+    3300018: plastic_cups
+    3300020: trash_1
+    4300000: cardboard_pizza_1
+    4300002: cardboard_pizza_2
+    4300004: cardboard_pizza_3
+    4300006: plastic_cup_1
+    4300008: plastic_cup_2
+    4300010: plastic_cups
+    4300012: plastic_cup_003
+    4300014: cardboard_china_1
+    4300016: cardboard_china_2
+    4300018: trash_1
+    4300020: plastic_cup_cap
   materials:
     importMaterials: 1
     materialName: 0
