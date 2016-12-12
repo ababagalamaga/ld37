@@ -5,7 +5,10 @@ using UnityEngine;
 public class Pickup : MonoBehaviour {
 
     public bool Selected;
+
     public bool IsGlasses;
+    public bool IsBottle;
+
     public string Property;
     public Color Highlight;
     public Color Real;
@@ -42,6 +45,18 @@ public class Pickup : MonoBehaviour {
             var currentRoom = playerController.CurrentRoom();
             if (currentRoom != null) {
                 currentRoom.ObjectiveSucced = true;
+            }
+        }
+
+        if (IsBottle) {
+            var currentRoom = playerController.CurrentRoom();
+            if (currentRoom != null) {
+                var behavior = currentRoom.GetComponent<RoomBehavior4>();
+                behavior.PickBottle();
+                playerController.ApplyBlurSettings(false, 0.1f, (float)behavior.BottlesLeft() / behavior.Bottles);
+                if (behavior.BottlesLeft() == 0) {
+                    currentRoom.ObjectiveSucced = true;
+                }
             }
         }
         Destroy(gameObject);
