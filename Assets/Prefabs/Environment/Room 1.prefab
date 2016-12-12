@@ -5962,7 +5962,7 @@ MonoBehaviour:
   Stamina: 1
   StaminaDecSpeed: 0.05
   StaminaIncSpeed: 0.25
-  ObjectiveSucced: 0
+  ObjectiveSucced: 1
 --- !u!135 &135040481671641544
 SphereCollider:
   m_ObjectHideFlags: 1

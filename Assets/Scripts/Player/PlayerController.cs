@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 
     private DepthOfField _blur;
     private VignetteAndChromaticAberration _vignette;
-    private Tonemapping _tonemapping;
+    private ContrastStretch _tonemapping;
 
     private float _currentBlurAperture;
     private float _targetBlurAperture;
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour {
         _vignetteDuration = 0.0f;
         _vignettePassed = 0.0f;
 
-        _tonemapping = _cameraController.GetComponent<Tonemapping>();
+        _tonemapping = _cameraController.GetComponent<ContrastStretch>();
 
         _tonemappingEnabled = false;
         _currentTonemappingValue = 0.0f;
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour {
 	    if (_blurAperturePassed < _blurApertureDuration && _blurApertureDuration > 0.0f) {
 	        _blurAperturePassed += Time.deltaTime;
 	        var passedNorm = _blurAperturePassed / _blurApertureDuration;
-	        _blur.aperture = _currentBlurAperture * (1 - passedNorm) + _targetBlurAperture * passedNorm;
+	        _blur.aperture = Mathf.Clamp((_currentBlurAperture * (1 - passedNorm) + _targetBlurAperture * passedNorm), Mathf.Min(_currentBlurAperture, _targetBlurAperture), Mathf.Max(_currentBlurAperture, _targetBlurAperture));
 	    } else {
 	        _blur.aperture = _targetBlurAperture;
             _blur.enabled = _blurApertureEnabled;
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour {
         if (_vignettePassed < _vignetteDuration && _vignetteDuration > 0.0f) {
             _vignettePassed += Time.deltaTime;
 	        var passedNorm = _vignettePassed / _vignetteDuration;
-	        _vignette.intensity = _currentVignetteValue * (1 - passedNorm) + _targetVignetteValue * passedNorm;
+	        _vignette.intensity = Mathf.Clamp((_currentVignetteValue * (1 - passedNorm) + _targetVignetteValue * passedNorm), Mathf.Min(_currentVignetteValue, _targetVignetteValue), Mathf.Max(_currentVignetteValue, _targetVignetteValue));
 	    } else {
 	        _vignette.intensity = _targetVignetteValue;
             _vignette.enabled = _vignetteEnabled;
@@ -82,11 +82,12 @@ public class PlayerController : MonoBehaviour {
         if (_tonemappingPassed < _tonemappingDuration && _tonemappingDuration > 0.0f) {
             _tonemappingPassed += Time.deltaTime;
 	        var passedNorm = _tonemappingPassed / _tonemappingDuration;
-            _tonemapping.middleGrey = _currentTonemappingValue * (1 - passedNorm) + _targetTonemappingValue * passedNorm;
+            _tonemapping.limitMinimum = Mathf.Clamp(_currentTonemappingValue * (1 - passedNorm) + _targetTonemappingValue * passedNorm, Mathf.Min(_currentTonemappingValue, _targetTonemappingValue), Mathf.Max(_currentTonemappingValue, _targetTonemappingValue));
 	    } else {
-            _tonemapping.middleGrey = _targetTonemappingValue;
+            _tonemapping.limitMinimum = _targetTonemappingValue;
             _tonemapping.enabled = _tonemappingEnabled;
 	    }
+        Debug.Log(_tonemapping.limitMinimum);
 	}
 
     public void ApplySettings(Room room) {
@@ -123,7 +124,7 @@ public class PlayerController : MonoBehaviour {
             _tonemapping.enabled = _tonemappingEnabled;
         }
         _tonemappingDuration = room.PlayerTonemappingDuration;
-        _currentTonemappingValue = _tonemapping.exposureAdjustment;
+        _currentTonemappingValue = _tonemapping.limitMinimum;
         _targetTonemappingValue = room.PlayerTonemappingValue;
         _tonemappingPassed = 0.0f;
     }
@@ -139,14 +140,14 @@ public class PlayerController : MonoBehaviour {
         _vignettePassed = 0.0f;
     }
 
-    public void ApplyTonemappingSettings(bool enabled, float duration, float value)
+    public void ApplyContrastSettings(bool enabled, float duration, float value)
     {
         _tonemappingEnabled = enabled;
         if (_tonemappingEnabled) {
             _tonemapping.enabled = _tonemappingEnabled;
         }
         _tonemappingDuration = duration;
-        _currentTonemappingValue = _tonemapping.middleGrey;
+        _currentTonemappingValue = _tonemapping.limitMinimum;
         _targetTonemappingValue = value;
         _tonemappingPassed = 0.0f;
     }
