@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RoomBehaviorLava : MonoBehaviour {
 
-    public GameObject LavaTrigger;
+    public GameObject LavaFailTrigger;
+    public GameObject LavaSuccessTrigger;
     public GameObject LavaObject;
     public List<GameObject> StoneObjects;  
     public List<GameObject> RealObjects;
@@ -18,7 +19,7 @@ public class RoomBehaviorLava : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (LavaTrigger.GetComponent<LavaTriggeredNotifier>().Triggered) {
+	    if (LavaFailTrigger.GetComponent<LavaFailNotifier>().Triggered) {
 	        _room.ObjectiveSucced = false;
 
 	        for (int i = 0; i < StoneObjects.Count; i++) {
@@ -29,8 +30,12 @@ public class RoomBehaviorLava : MonoBehaviour {
 	        }
 
             Destroy(LavaObject);
+            Destroy(LavaSuccessTrigger);
+	        LavaSuccessTrigger = null;
 
             Destroy(this);
-	    }
-	}
+	    } else if (LavaSuccessTrigger != null && LavaSuccessTrigger.GetComponent<LavaSuccessNotifier>().Triggered) {
+	        _room.ObjectiveSucced = true;
+        }
+    }
 }

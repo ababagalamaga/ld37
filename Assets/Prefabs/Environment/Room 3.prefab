@@ -600,9 +600,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4044331499096604}
   - component: {fileID: 65972225649109000}
-  - component: {fileID: 114741134124723876}
+  - component: {fileID: 114047781107466410}
   m_Layer: 0
-  m_Name: LavaTrigger
+  m_Name: LavaFailTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1407,6 +1407,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1817394957705142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4466390613420646}
+  - component: {fileID: 65611449226161900}
+  - component: {fileID: 114889098075192338}
+  m_Layer: 0
+  m_Name: LavaSuccessTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1817421890733312
 GameObject:
   m_ObjectHideFlags: 1
@@ -1887,6 +1904,7 @@ Transform:
   - {fileID: 4426452417187176}
   - {fileID: 4705603976301504}
   - {fileID: 4044331499096604}
+  - {fileID: 4466390613420646}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2255,6 +2273,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4839981400868818}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4466390613420646
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1817394957705142}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.32, y: 0.49, z: -5.98}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4167973224747872}
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4473908744185234
 Transform:
@@ -2804,7 +2835,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1473391229526980}
-  m_LocalRotation: {x: 0.29883626, y: 0.64085644, z: 0.64085644, w: -0.29883626}
+  m_LocalRotation: {x: 0.29883623, y: 0.6408564, z: 0.6408564, w: -0.29883623}
   m_LocalPosition: {x: 1.9698327, y: 1.0146102, z: 3.7235901}
   m_LocalScale: {x: 0.9038118, y: 0.9038118, z: 0.9038118}
   m_Children: []
@@ -6523,6 +6554,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5535606, y: 0.50800014, z: 1.7911482}
   m_Center: {x: 0.022780284, y: 0, z: 0.895574}
+--- !u!65 &65611449226161900
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1817394957705142}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.6011555, y: 2.8861847, z: 3.208271}
+  m_Center: {x: 0.4094082, y: 0.94309235, z: -0.8310466}
 --- !u!65 &65622267867604778
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -6740,6 +6783,18 @@ Light:
   m_BounceIntensity: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114047781107466410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1259180620041900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138632b59e49dca45a89ca8e79acc3b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Triggered: 0
 --- !u!114 &114111349467126708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6751,7 +6806,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47925bce02e1a3b4dbfa318737671a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LavaTrigger: {fileID: 1259180620041900}
+  LavaFailTrigger: {fileID: 1259180620041900}
+  LavaSuccessTrigger: {fileID: 1817394957705142}
   LavaObject: {fileID: 1859560025766968}
   StoneObjects: []
   RealObjects: []
@@ -6803,8 +6859,7 @@ MonoBehaviour:
   PlayerTonemappingEnabled: 0
   PlayerTonemappingValue: 0
   PlayerTonemappingDuration: 0
-  ObjectiveSucced: 1
-  ObjectiveSuccessBlock: 1
+  ObjectiveSucced: 0
 --- !u!114 &114548291860447026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6818,15 +6873,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uvAnimationRate: {x: 0.06, y: 0}
   textureName: _MainTex
---- !u!114 &114741134124723876
+--- !u!114 &114889098075192338
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1259180620041900}
+  m_GameObject: {fileID: 1817394957705142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 138632b59e49dca45a89ca8e79acc3b1, type: 3}
+  m_Script: {fileID: 11500000, guid: c35485b0e421ee9418a4d8ab56f9586d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Triggered: 0
