@@ -114,7 +114,7 @@ Material:
       second: 1
     - first:
         name: _Outline
-      second: 0.005
+      second: 0.003
     - first:
         name: _Parallax
       second: 0.02
@@ -136,10 +136,10 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.6397059, g: 0.46933395, b: 0.1646302, a: 1}
+      second: {r: 0.6397059, g: 0.43001732, b: 0.1646302, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _OutlineColor
-      second: {r: 0.6392157, g: 0.47058827, b: 0.16470589, a: 1}
+      second: {r: 0.49264705, g: 0.3291772, b: 0.11953936, a: 1}
