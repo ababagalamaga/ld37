@@ -982,7 +982,7 @@ MonoBehaviour:
   RaycastMask:
     serializedVersion: 2
     m_Bits: 256
-  MaxRaycastDist: 1.2
+  MaxRaycastDist: 1.5
 --- !u!136 &2135414542
 CapsuleCollider:
   m_ObjectHideFlags: 0
