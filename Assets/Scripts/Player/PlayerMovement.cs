@@ -11,9 +11,12 @@ public class PlayerMovement : MonoBehaviour {
     public bool Grounded;
     public float SpeedMultiplier;
     public float HeadBobSpeedMultiplier;
+    public AudioClip JumpBegin;
+    public AudioClip JumpEnd;
 
     private GameObject _camera;
     private Rigidbody _rigidbody;
+    private AudioSource _audioSource;
     
     private bool _moving;
     private bool _jumpNeeded;
@@ -23,7 +26,8 @@ public class PlayerMovement : MonoBehaviour {
     // Use this for initialization
     void Start () {
 		_camera = GameObject.FindGameObjectWithTag("MainCamera");
-	    _rigidbody = GetComponent<Rigidbody>();
+        _audioSource = GameObject.FindGameObjectWithTag("Audio Source").GetComponent<AudioSource>();
+        _rigidbody = GetComponent<Rigidbody>();
         _moving = false;
     }
 	
@@ -63,6 +67,7 @@ public class PlayerMovement : MonoBehaviour {
             _rigidbody.AddForce(transform.up * JumpAcceleration / _rigidbody.mass);
             _jumpCooldown = JumpCooldown;
             _jumpNeeded = false;
+            _audioSource.PlayOneShot(JumpBegin);
         }
 
         var vel = _rigidbody.velocity.magnitude;
@@ -79,6 +84,8 @@ public class PlayerMovement : MonoBehaviour {
 
     void OnCollisionStay(Collision collision) {
         if (collision.transform.tag != "Not Ground") {
+            //if (!Grounded)
+            //    _audioSource.PlayOneShot(JumpEnd);
             Grounded = true;
         }
     }

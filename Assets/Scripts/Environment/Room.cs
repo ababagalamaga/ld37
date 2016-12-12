@@ -28,6 +28,8 @@ public class Room : MonoBehaviour {
 
     public AudioClip LeftStep;
     public AudioClip RightStep;
+    public AudioClip JumpBegin;
+    public AudioClip JumpEnd;
 
     public float MaxCameraAngle = 280.0f;
     public float MinCameraAngle = 80.0f;
