@@ -47,7 +47,7 @@ public class CameraController : MonoBehaviour
         _headBobRotation = Quaternion.identity;
         _headBobForward = Quaternion.identity;
         _realRotation = transform.rotation;
-        _audioSource = GetComponent<AudioSource>();
+        _audioSource = transform.FindChild("Audio Source").GetComponent<AudioSource>();
     }
 
     public void SetPlayerSpeed(float speed) {
