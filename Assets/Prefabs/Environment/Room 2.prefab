@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 4936114631843252}
   - component: {fileID: 114465545023362746}
   - component: {fileID: 65160215958823800}
-  - component: {fileID: 114684500502548954}
+  - component: {fileID: 114482499347016506}
   m_Layer: 0
   m_Name: Room 2
   m_TagString: Untagged
@@ -6657,23 +6657,26 @@ MonoBehaviour:
   PlayerMaxVelocityChange: 3
   PlayerJumpAcceleration: 0
   PlayerHeadBobAmount: 0.05
+  PlayerHeadBobMinSpeed: 0
   PlayerHeadBobDuration: 0.75
   PlayerHeadBobError: 1
   PlayerHeadBobSpeedInfluence: 0.25
-  PlayerHeadBobRotationAmount: 0.02
+  PlayerHeadBobRotationAmount: 0.01
   PlayerHeadBobRotationPhase: 3.14
+  PlayerHeadBobRotationPhaseMult: 0
   PlayerHeadBobRotationLerp: 10
+  PlayerHeadBobRotationDuration: 1.5
   PlayerBlurEnabled: 0
-  PlayerBlurAperture: 0.6
-  PlayerBlurDuration: 1
+  PlayerBlurAperture: 0
+  PlayerBlurDuration: 0.2
   PlayerVignetteEnabled: 0
-  PlayerVignetteValue: 0.6
-  PlayerVignetteDuration: 4
+  PlayerVignetteValue: 0
+  PlayerVignetteDuration: 0.2
   PlayerTonemappingEnabled: 0
   PlayerTonemappingValue: 0
-  PlayerTonemappingDuration: 0
+  PlayerTonemappingDuration: 0.2
   ObjectiveSucced: 1
---- !u!114 &114684500502548954
+--- !u!114 &114482499347016506
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -6681,13 +6684,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1248798386186868}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8e7d529e89f23345a32d36951160a5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f0915dde4082194f9f46ec2b2fcc5ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stamina: 1
-  StaminaDecSpeed: 0.05
-  StaminaIncSpeed: 0.25
-  ObjectiveSucced: 0
 --- !u!135 &135040481671641544
 SphereCollider:
   m_ObjectHideFlags: 1

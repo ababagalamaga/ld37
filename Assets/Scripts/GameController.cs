@@ -118,8 +118,7 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    public void Continue()
-    {
+    public void Continue() {
         Time.timeScale = 1;
         _menu.SetActive(false);
     }
@@ -129,8 +128,7 @@ public class GameController : MonoBehaviour {
         Time.timeScale = 1;
     }
 
-    public void Quit()
-    {
+    public void Quit() {
         Application.Quit();
     }
 
@@ -140,6 +138,11 @@ public class GameController : MonoBehaviour {
         }
 
         _previous = _current;
+        Destroy(_previous.GetComponent<RoomBehavior0>());
+        Destroy(_previous.GetComponent<RoomBehavior1>());
+        Destroy(_previous.GetComponent<RoomBehavior2>());
+        Destroy(_previous.GetComponent<RoomBehaviorLava>());
+
         if (_nextCurrent == null) {
             _current = _nextNext;
             SpawnNext();

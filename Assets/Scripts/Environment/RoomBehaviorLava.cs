@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomBehaviorLava : MonoBehaviour {
+
     public GameObject LavaTrigger;
     public GameObject LavaObject;
     public List<GameObject> StoneObjects;  

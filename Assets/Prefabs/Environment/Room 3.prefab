@@ -6795,15 +6795,16 @@ MonoBehaviour:
   PlayerHeadBobRotationLerp: 10
   PlayerHeadBobRotationDuration: 0.6
   PlayerBlurEnabled: 0
-  PlayerBlurAperture: 0.6
-  PlayerBlurDuration: 1
+  PlayerBlurAperture: 0
+  PlayerBlurDuration: 0.5
   PlayerVignetteEnabled: 0
-  PlayerVignetteValue: 0.6
-  PlayerVignetteDuration: 4
+  PlayerVignetteValue: 0
+  PlayerVignetteDuration: 0.5
   PlayerTonemappingEnabled: 0
   PlayerTonemappingValue: 0
   PlayerTonemappingDuration: 0
   ObjectiveSucced: 1
+  ObjectiveSuccessBlock: 1
 --- !u!114 &114548291860447026
 MonoBehaviour:
   m_ObjectHideFlags: 1
