@@ -153,6 +153,17 @@ public class PlayerController : MonoBehaviour {
         _tonemappingPassed = 0.0f;
     }
 
+    public void ApplyBlurSettings(bool enabled, float duration, float value) {
+        _blurApertureEnabled = enabled;
+        if (_blurApertureEnabled) {
+            _blur.enabled = _blurApertureEnabled;
+        }
+        _blurApertureDuration = duration;
+        _currentBlurAperture = _blur.aperture;
+        _targetBlurAperture = value;
+        _blurAperturePassed = 0.0f;
+    }
+
     public void ApplyVignetteSettings(bool enabled, float duration, float value) {
         _vignetteEnabled = enabled;
         if (_vignetteEnabled) {
