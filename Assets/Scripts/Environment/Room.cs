@@ -147,6 +147,7 @@ public class Room : MonoBehaviour {
 
     void OnTriggerExit(Collider other) {
         if (other.transform.tag == "Player") {
+            _audioSource.Stop();
             _playerInRoom = false;
         }
     }
