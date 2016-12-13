@@ -31,22 +31,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1015429156187628
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4655689954469646}
-  - component: {fileID: 82683110082833134}
-  m_Layer: 0
-  m_Name: Audio Source
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1018561681660872
 GameObject:
   m_ObjectHideFlags: 1
@@ -577,7 +561,7 @@ GameObject:
   - component: {fileID: 4306355587155452}
   - component: {fileID: 114167166053319244}
   - component: {fileID: 65683175773836400}
-  - component: {fileID: 114441364092451748}
+  - component: {fileID: 114983098171214806}
   m_Layer: 0
   m_Name: Room 4
   m_TagString: Untagged
@@ -939,7 +923,7 @@ GameObject:
   - component: {fileID: 114061961138294030}
   - component: {fileID: 114279509710312410}
   m_Layer: 0
-  m_Name: MainCamera drunk
+  m_Name: MainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2157,7 +2141,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1265449397858280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.40476, y: 0, z: -10.144718}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4206826921040512}
@@ -2182,7 +2166,6 @@ Transform:
   - {fileID: 4492928803748400}
   - {fileID: 4461284303504162}
   - {fileID: 4422541639349690}
-  - {fileID: 4655689954469646}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2833,19 +2816,6 @@ Transform:
   m_Father: {fileID: 4479584473722556}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4655689954469646
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1015429156187628}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4306355587155452}
-  m_RootOrder: 22
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4659157606397188
 Transform:
   m_ObjectHideFlags: 1
@@ -2878,7 +2848,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1152764723419626}
-  m_LocalRotation: {x: 0.29883626, y: 0.64085644, z: 0.64085644, w: -0.29883626}
+  m_LocalRotation: {x: 0.29883623, y: 0.6408564, z: 0.6408564, w: -0.29883623}
   m_LocalPosition: {x: 1.9698327, y: 1.0146102, z: 3.7235901}
   m_LocalScale: {x: 0.9038118, y: 0.9038118, z: 0.9038118}
   m_Children: []
@@ -7153,86 +7123,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!82 &82683110082833134
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1015429156187628}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!102 &102007794702289560
 TextMesh:
   serializedVersion: 3
@@ -7562,21 +7452,6 @@ MonoBehaviour:
   shaderFXAAPreset3: {fileID: 4800000, guid: c182fa94a5a0a4c02870641efcd38cd5, type: 3}
   shaderFXAAII: {fileID: 4800000, guid: cd5b323dcc592457790ff18b528f5e67, type: 3}
   shaderFXAAIII: {fileID: 4800000, guid: c547503fff0e8482ea5793727057041c, type: 3}
---- !u!114 &114441364092451748
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1265449397858280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 147bb83d84d084e459213abeeae879f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Bottles: 0
-  Stamina: 0
-  StaminaDecSpeed: 0
-  StaminaIncSpeed: 0
 --- !u!114 &114543780366900616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7755,6 +7630,21 @@ MonoBehaviour:
   m_MinZ: 0.01
   m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
   m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
+--- !u!114 &114983098171214806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265449397858280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c5bdcaa79c8d224088a619eefd80f0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bottles: 3
+  Stamina: 1
+  StaminaDecSpeed: 0.2
+  StaminaIncSpeed: 0.4
 --- !u!124 &124804446332316260
 Behaviour:
   m_ObjectHideFlags: 1
