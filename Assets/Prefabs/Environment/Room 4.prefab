@@ -2818,7 +2818,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1152764723419626}
-  m_LocalRotation: {x: 0.29883626, y: 0.64085644, z: 0.64085644, w: -0.29883626}
+  m_LocalRotation: {x: 0.29883623, y: 0.6408564, z: 0.6408564, w: -0.29883623}
   m_LocalPosition: {x: 1.9698327, y: 1.0146102, z: 3.7235901}
   m_LocalScale: {x: 0.9038118, y: 0.9038118, z: 0.9038118}
   m_Children: []
@@ -7298,6 +7298,8 @@ MonoBehaviour:
   PlayerHeadBobForwardDuration: 3
   LeftStep: {fileID: 8300000, guid: 29b2a1970a7ce8c44b4020cb73fc4158, type: 3}
   RightStep: {fileID: 8300000, guid: 2910863e51fb72549b97917065876143, type: 3}
+  JumpBegin: {fileID: 8300000, guid: 91e54d2ec03b3824faac18a402e159c2, type: 3}
+  JumpEnd: {fileID: 8300000, guid: b35cb39db1a11324284a83e992086c9f, type: 3}
   MaxCameraAngle: 280
   MinCameraAngle: 80
   PlayerBlurEnabled: 1
