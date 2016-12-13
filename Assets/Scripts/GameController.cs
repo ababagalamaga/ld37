@@ -162,6 +162,7 @@ public class GameController : MonoBehaviour {
         Destroy(_previous.GetComponent<RoomBehavior2>());
         Destroy(_previous.GetComponent<RoomBehavior6>());
         Destroy(_previous.GetComponent<RoomBehavior4>());
+        Destroy(_previous.GetComponent<RoomBehavior5>());
         Destroy(_previous.GetComponent<RoomBehaviorLava>());
 
         if (_nextCurrent == null) {
