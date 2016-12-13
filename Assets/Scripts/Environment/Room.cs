@@ -63,7 +63,9 @@ public class Room : MonoBehaviour {
 	}
 
     void Start() {
-        _audioSource = transform.FindChild("Audio Source").GetComponent<AudioSource>();
+        if (transform.FindChild("Audio Source") != null) {
+            _audioSource = transform.FindChild("Audio Source").GetComponent<AudioSource>();
+        }
         _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
@@ -120,7 +122,10 @@ public class Room : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         if (other.transform.tag == "Player") {
             _playerInRoom = true;
-            _audioSource.PlayOneShot(Music, 0.2f);
+
+            if (_audioSource != null) {
+                _audioSource.PlayOneShot(Music, 0.2f);
+            }
 
             // TODO: White Screen
 

@@ -57,9 +57,9 @@ public class Pickup : MonoBehaviour {
 
                 if (behavior4 != null) {
                     behavior4.PickBottle();
-                    var value = (float)behavior5.BottlesLeft() / behavior5.Bottles;
+                    var value = (float)behavior4.BottlesLeft() / behavior4.Bottles;
                     playerController.ApplyBlurSettings(value > 0.0f, 0.1f, value);
-                    if (behavior5.BottlesLeft() == 0) {
+                    if (behavior4.BottlesLeft() == 0) {
                         currentRoom.ObjectiveSucced = true;
                     }
                 } else if (behavior5 != null) {
