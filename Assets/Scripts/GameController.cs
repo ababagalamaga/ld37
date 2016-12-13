@@ -183,8 +183,10 @@ public class GameController : MonoBehaviour {
         var offset = currentEnterTransform.position - previousEnterTransform.position;
 
         if (_currentRoomId > 0)
-            _cameraController.transform.position -= offset;
-            _playerController.transform.position -= offset;
+            if (_cameraController.transform.parent == null) {
+                _cameraController.transform.position -= offset;
+            }
+        _playerController.transform.position -= offset;
         _previous.transform.position -= offset;
         _current.transform.position -= offset;
         _nextCurrent.transform.position -= offset;
