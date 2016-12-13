@@ -52,20 +52,21 @@ public class Pickup : MonoBehaviour {
         if (IsBottle) {
             var currentRoom = playerController.CurrentRoom();
             if (currentRoom != null) {
-                var behavior = currentRoom.GetComponent<RoomBehavior4>();
-                if (behavior == null) {
-                    var behavior5 = currentRoom.GetComponent<RoomBehavior5>();
-                    behavior5.PickBottle();
+                var behavior4 = currentRoom.GetComponent<RoomBehavior4>();
+                var behavior5 = currentRoom.GetComponent<RoomBehavior5>();
+
+                if (behavior4 != null) {
+                    behavior4.PickBottle();
                     var value = (float)behavior5.BottlesLeft() / behavior5.Bottles;
                     playerController.ApplyBlurSettings(value > 0.0f, 0.1f, value);
                     if (behavior5.BottlesLeft() == 0) {
                         currentRoom.ObjectiveSucced = true;
                     }
-                } else {
-                    behavior.PickBottle();
-                    var value = (float)behavior.BottlesLeft() / behavior.Bottles;
+                } else if (behavior5 != null) {
+                    behavior5.PickBottle();
+                    var value = (float)behavior5.BottlesLeft() / behavior5.Bottles;
                     playerController.ApplyBlurSettings(value > 0.0f, 0.1f, value);
-                    if (behavior.BottlesLeft() == 0) {
+                    if (behavior5.BottlesLeft() == 0) {
                         currentRoom.ObjectiveSucced = true;
                     }
                 }
