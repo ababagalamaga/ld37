@@ -6735,8 +6735,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 3.7631936, z: 3.7004719}
-  m_Center: {x: 0, y: 0.38159692, z: -0.35023546}
+  m_Size: {x: 2, y: 3.7631936, z: 4.658918}
+  m_Center: {x: 0, y: 0.38159692, z: -0.82945967}
 --- !u!65 &65053501658865022
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -7348,7 +7348,7 @@ MonoBehaviour:
   PlayerHeadBobForwardDuration: 0
   LeftStep: {fileID: 8300000, guid: 3aec67c0df1770f42bc216c3de7da078, type: 3}
   RightStep: {fileID: 8300000, guid: 0d3faa21c5946ba43b98819d12a0d806, type: 3}
-  JumpBegin: {fileID: 8300000, guid: 91e54d2ec03b3824faac18a402e159c2, type: 3}
+  JumpBegin: {fileID: 8300000, guid: 4ce388144f04af44d8f7ffa0284db1b6, type: 3}
   JumpEnd: {fileID: 8300000, guid: b35cb39db1a11324284a83e992086c9f, type: 3}
   Music: {fileID: 8300000, guid: ef0de0d6a3f815945837e7588e3c5754, type: 3}
   MaxCameraAngle: 280

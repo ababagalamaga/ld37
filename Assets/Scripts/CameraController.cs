@@ -108,12 +108,12 @@ public class CameraController : MonoBehaviour
                 if (posDelta > 0.7 * HeadBobAmount && step > 0)
                 {
                     step = -1;
-                    _audioSource.PlayOneShot(RightStep, 0.1f);
+                    _audioSource.PlayOneShot(RightStep, 0.025f);
                 }
                 if (posDelta < -0.7 * HeadBobAmount && step < 0)
                 {
                     step = 1;
-                    _audioSource.PlayOneShot(LeftStep, 0.1f);
+                    _audioSource.PlayOneShot(LeftStep, 0.025f);
                 }
             }
 

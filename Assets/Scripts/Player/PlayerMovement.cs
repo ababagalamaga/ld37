@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour {
             _rigidbody.AddForce(transform.up * JumpAcceleration / _rigidbody.mass);
             _jumpCooldown = JumpCooldown;
             _jumpNeeded = false;
-            _audioSource.PlayOneShot(JumpBegin);
+            _audioSource.PlayOneShot(JumpBegin, 0.25f);
         }
 
         var vel = _rigidbody.velocity.magnitude;
