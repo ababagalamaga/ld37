@@ -41,6 +41,10 @@ public class GameController : MonoBehaviour {
         _playerController.GetComponent<MouseLook>().RotationEnabled(true);
     }
 
+    public void SetCamera(GameObject camera) {
+        _cameraController = camera;
+    }
+
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown("escape")) {

@@ -30,6 +30,7 @@ public class Room : MonoBehaviour {
     public AudioClip RightStep;
     public AudioClip JumpBegin;
     public AudioClip JumpEnd;
+    public AudioClip Music;
 
     public float MaxCameraAngle = 280.0f;
     public float MinCameraAngle = 80.0f;
@@ -51,6 +52,7 @@ public class Room : MonoBehaviour {
     private bool _initialized;
     private bool _playerInRoom;
     private PlayerController _playerController;
+    private AudioSource _audioSource;
 
     // Use this for initialization
     void Awake () {
@@ -61,6 +63,7 @@ public class Room : MonoBehaviour {
 	}
 
     void Start() {
+        _audioSource = GameObject.FindGameObjectWithTag("MainCamera").transform.FindChild("Audio Source").GetComponent<AudioSource>();
         _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
@@ -117,6 +120,25 @@ public class Room : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         if (other.transform.tag == "Player") {
             _playerInRoom = true;
+            _audioSource.PlayOneShot(Music, 0.2f);
+
+            // TODO: White Screen
+
+            var roomCamera = transform.FindChild("MainCamera");
+            if (roomCamera != null) {
+
+                var currentCamera = GameObject.FindGameObjectWithTag("MainCamera");
+
+                roomCamera.transform.position = currentCamera.transform.position;
+                roomCamera.transform.rotation = currentCamera.transform.rotation;
+
+                Destroy(currentCamera);
+
+                _playerController.SetCamera(roomCamera.GetComponent<CameraController>());
+                _playerController.GetComponent<PlayerMovement>().SetCamera(roomCamera.gameObject);
+                GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().SetCamera(roomCamera.gameObject);
+                roomCamera.gameObject.SetActive(true);
+            }
 
             _playerController.ApplySettings(this);
         }
