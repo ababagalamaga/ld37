@@ -63,7 +63,7 @@ public class Room : MonoBehaviour {
 	}
 
     void Start() {
-        _audioSource = GameObject.FindGameObjectWithTag("MainCamera").transform.FindChild("Audio Source").GetComponent<AudioSource>();
+        _audioSource = transform.FindChild("Audio Source").GetComponent<AudioSource>();
         _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
