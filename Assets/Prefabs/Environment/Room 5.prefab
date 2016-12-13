@@ -7641,6 +7641,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147bb83d84d084e459213abeeae879f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bottles: 3
+  Stamina: 1
+  StaminaDecSpeed: 0.2
+  StaminaIncSpeed: 0.4
 --- !u!124 &124001550444416102
 Behaviour:
   m_ObjectHideFlags: 1

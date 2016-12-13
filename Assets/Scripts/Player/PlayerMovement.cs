@@ -33,10 +33,11 @@ public class PlayerMovement : MonoBehaviour {
 
     public void SetCamera(GameObject cameraObject) {
         _camera = cameraObject;
+        _audioSource = _camera.transform.FindChild("Audio Source").GetComponent<AudioSource>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 	    if (_jumpCooldown > 0.0f) {
 	        _jumpCooldown -= Time.deltaTime;
         }
