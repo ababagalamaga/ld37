@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour {
     // Use this for initialization
     void Start () {
 		_camera = GameObject.FindGameObjectWithTag("MainCamera");
-        _audioSource = GameObject.FindGameObjectWithTag("Audio Source").GetComponent<AudioSource>();
+        _audioSource = _camera.transform.FindChild("Audio Source").GetComponent<AudioSource>();
         _rigidbody = GetComponent<Rigidbody>();
         _moving = false;
     }
