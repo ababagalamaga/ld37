@@ -7599,7 +7599,7 @@ MonoBehaviour:
   RightStep: {fileID: 8300000, guid: 2910863e51fb72549b97917065876143, type: 3}
   JumpBegin: {fileID: 0}
   JumpEnd: {fileID: 0}
-  Music: {fileID: 0}
+  Music: {fileID: 8300000, guid: f175b321f7b162e4ba6dfad9b46cf538, type: 3}
   MaxCameraAngle: 340
   MinCameraAngle: 80
   PlayerBlurEnabled: 0
