@@ -466,8 +466,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameraHeight: 0
-  BloorAmount: 0
   PlayerSpeed: 0
   PlayerMaxVelocityChange: 0
   PlayerJumpAcceleration: 0
+  PlayerHeadBobAmount: 0
+  PlayerHeadBobStandingMult: 0
+  PlayerHeadBobMinSpeed: 0
+  PlayerHeadBobDuration: 0
+  PlayerHeadBobError: 0
+  PlayerHeadBobSpeedInfluence: 0
+  PlayerHeadBobRotationAmount: 0
+  PlayerHeadBobRotationPhase: 0
+  PlayerHeadBobRotationPhaseMult: 0
+  PlayerHeadBobRotationLerp: 0
+  PlayerHeadBobRotationDuration: 0
+  PlayerHeadBobForwardAmount: 0
+  PlayerHeadBobForwardPhase: 0
+  PlayerHeadBobForwardPhaseMult: 0
+  PlayerHeadBobForwardLerp: 0
+  PlayerHeadBobForwardDuration: 0
+  LeftStep: {fileID: 0}
+  RightStep: {fileID: 0}
+  JumpBegin: {fileID: 0}
+  JumpEnd: {fileID: 0}
+  Music: {fileID: 8300000, guid: d2654ce0318af5f4aaa3134dbd548c57, type: 3}
+  MaxCameraAngle: 280
+  MinCameraAngle: 80
+  PlayerBlurEnabled: 0
+  PlayerBlurAperture: 0
+  PlayerBlurDuration: 0
+  PlayerVignetteEnabled: 0
+  PlayerVignetteValue: 0
+  PlayerVignetteDuration: 0
+  PlayerTonemappingEnabled: 0
+  PlayerTonemappingValue: 0
+  PlayerTonemappingDuration: 0
   ObjectiveSucced: 0
