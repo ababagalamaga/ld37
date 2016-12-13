@@ -17,8 +17,22 @@ public class RoomBehavior6 : MonoBehaviour {
 	    if (_room.PlayerInRoom()) {
 	        if (Mom.GetComponent<MomSuccessNotifier>() != null && Mom.GetComponent<MomSuccessNotifier>().Triggered) {
 	            _room.ObjectiveSucced = true;
-                Time.timeScale = 0;
-            }
+
+	            StartCoroutine(End());
+	        }
 	    }
 	}
+
+    IEnumerator End() {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<MouseLook>().RotationEnabled(false);
+
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().ApplyVignetteSettings(true, 5, 1.0f);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().ApplyContrastSettings(true, 5, 1.0f);
+
+        for(float passed = 0f; passed <= 10; passed += Time.deltaTime) {
+            yield return null;
+        }
+
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().RestartGame();
+    }
 }
