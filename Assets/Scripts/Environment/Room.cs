@@ -121,7 +121,6 @@ public class Room : MonoBehaviour {
         if (other.transform.tag == "Player") {
             _playerInRoom = true;
             _audioSource.PlayOneShot(Music, 0.2f);
-            _playerController.ApplySettings(this);
 
             // TODO: White Screen
 
@@ -140,6 +139,8 @@ public class Room : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().SetCamera(roomCamera.gameObject);
                 roomCamera.gameObject.SetActive(true);
             }
+
+            _playerController.ApplySettings(this);
         }
     }
 
