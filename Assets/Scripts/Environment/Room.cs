@@ -122,6 +122,24 @@ public class Room : MonoBehaviour {
             _playerInRoom = true;
             _audioSource.PlayOneShot(Music, 0.2f);
             _playerController.ApplySettings(this);
+
+            // TODO: White Screen
+
+            var roomCamera = transform.FindChild("MainCamera");
+            if (roomCamera != null) {
+
+                var currentCamera = GameObject.FindGameObjectWithTag("MainCamera");
+
+                roomCamera.transform.position = currentCamera.transform.position;
+                roomCamera.transform.rotation = currentCamera.transform.rotation;
+
+                Destroy(currentCamera);
+
+                _playerController.SetCamera(roomCamera.GetComponent<CameraController>());
+                _playerController.GetComponent<PlayerMovement>().SetCamera(roomCamera.gameObject);
+                GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().SetCamera(roomCamera.gameObject);
+                roomCamera.gameObject.SetActive(true);
+            }
         }
     }
 

@@ -64,6 +64,13 @@ public class PlayerController : MonoBehaviour {
         _tonemappingDuration = 0.0f;
         _tonemappingPassed = 0.0f;
     }
+
+    public void SetCamera(CameraController cameraController) {
+        _cameraController = cameraController;
+        _blur = _cameraController.GetComponent<DepthOfField>();
+        _vignette = _cameraController.GetComponent<VignetteAndChromaticAberration>();
+        _tonemapping = _cameraController.GetComponent<ContrastStretch>();
+    }
 	
 	// Update is called once per frame
 	void Update () {

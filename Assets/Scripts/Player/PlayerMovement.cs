@@ -30,6 +30,10 @@ public class PlayerMovement : MonoBehaviour {
         _moving = false;
         _audioSource = _camera.transform.FindChild("Audio Source").GetComponent<AudioSource>();
     }
+
+    public void SetCamera(GameObject cameraObject) {
+        _camera = cameraObject;
+    }
 	
 	// Update is called once per frame
 	void Update () {
