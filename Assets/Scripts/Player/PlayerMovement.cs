@@ -26,6 +26,10 @@ public class PlayerMovement : MonoBehaviour {
 	    _rigidbody = GetComponent<Rigidbody>();
         _moving = false;
     }
+
+    public void SetCamera(GameObject cameraObject) {
+        _camera = cameraObject;
+    }
 	
 	// Update is called once per frame
 	void Update () {
